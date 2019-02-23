@@ -1,0 +1,609 @@
+@1=~Geomantic Sorcerer Kit~
+@2=~Throne of Bhaal requis~
+@10=~Combinaison invalide de Classe/Statistiques/Alignement~
+@11=~Incompatible avec le composant 'Female Portraits for Shapeshifting'~
+@12=~Geomantic Sorcerer kit doit etre installe avant ce composant~
+@13=~Incompatible avec le composant 'Male Portraits for Shapeshifting'~
+@20=~Portraits pour la metamorphose druidique
+NE PAS INSTALLER SI VOUS COMPTEZ DONNER CE KIT A UN PNJ~
+@21=~fCast02 (Elfe/Demi-elfe, avec une capuche verte)~
+@22=~fCast15 (Lanceur de sorts tatoue)~
+@23=~fCast16 (Avec un ornement métallique)~
+@24=~fCast18 (Humain/Demi-elfe aux cheveux bruns)~
+@25=~fDruid7 (Druide avec une coiffe)~
+@26=~fDruid9 (Druide roux typique portant une robe marron)~
+@27=~fGeo01 (DESCRIPTION) - par Amedyr~
+@28=~fHaEl1 (Lanceur de sorts Elfe/Demi-elfe) - par Amaurea~
+@29=~fHaEl2 (Demi-elfe/Elfe en robe blanche) - par Amaurea~
+@30=~PJs Masculins~
+@31=~PJs Feminins~
+@40=~Portrait pour la forme humanoide male
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@42=~Portrait pour la forme ours
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@43=~Portrait pour la forme chat
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@44=~Portrait pour la forme chien
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@45=~Portrait pour la forme leopard
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@46=~Portrait pour la forme elan male
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@47=~Portrait pour la forme panthere
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@48=~Portrait pour la forme rat
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@49=~Portrait pour la forme serpent
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@50=~Portrait pour la forme loup
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@51=~Portrait pour la forme humanoide femelle
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@52=~Portrait pour la forme elan femelle
+(Se referer a la section Portraits du Readme pour visualiser les portraits)~
+@60=~mCast2 (Lanceur de sorts de foudre)~
+@61=~mCast5 (Lanceur de sorts blond avec capuche)~
+@62=~mDruid2 (Druide avec peintures faciales) - par Amaurea~
+@63=~mDruid (Druide dans la nature)~
+@64=~mElf1 (Elfe a la peau tres sombre)~
+@65=~mElf2 (Elfe de type lanceur de sorts, au col ouvert) - par Amaurea~
+@66=~mElf3 (Elfe de type lanceur de sorts, en gros plan) - par Amaurea~
+@67=~mGeo01 (Lanceur de sorts avec sceaux et runes) - par Amedyr~
+@68=~mHum7 (Humain aux cheveux roux) - par Amaurea~
+@99=~oBear1 (Brun fonce regardant par dessus son epaule) - par Amaurea~
+@70=~oBear2 (Brun clair souriant, la gueule legerement ouverte) - par Amaurea~
+@71=~oBear3 (Ours a l'air sérieux) - par Amaurea~
+@72=~oCat1 (Jaune et orange tachete avec le poitrail blanc) - par Amaurea~
+@73=~oCat2 (Gris avec des rayures noires autour du cou) - par Amaurea~
+@74=~oCat3 (Gris) - par Amaurea~
+@75=~oDog1 (Chien de chasse gris) - par Amaurea~
+@76=~oDog2 (Chien beige aux poils hirsutes) - par Amaurea~
+@77=~oDog3 (Border Collie) - par Amaurea, dessin de Skye par Caedwyr~
+@78=~oLeop1 (Leopard) - par Amaurea~
+@79=~oLeop2 (Leopard dans la neige) - par Amaurea~
+@80=~oLeop3 (Leopard la langue apparente) - par Amaurea~
+@81=~omMoo1 (Elan la tete baissee) - par Amaurea~
+@82=~omMoo2 (Elan avec la tete de profil) - par Amaurea~
+@83=~omMoo3 (Elan couleur chataigne) - par Amaurea~
+@84=~ofMoo1 (Profil de trois-quarts) - par Amaurea~
+@85=~ofMoo2 (Elan couleur chataigne avec la tete baissee) - par Amaurea~
+@86=~ofMoo3 (Elan couleur chataigne avec la tete relevee) - par Amaurea~
+@87=~oPan1 (Panthere noire au poil brillant) - par Amaurea~
+@88=~oPan2 (Panthere avec la tete penchee sur le cote) - par Amaurea~
+@89=~oPan3 (Panthere avec la gueule legerement ouverte) - par Amaurea~
+@90=~oRat1 (Rat beige) - par Amaurea~
+@91=~oRat2 (Rat sortant la tete d'un trou) - par Amaurea~
+@92=~oRat3 (Rat clair devant de la nourriture) - par Amaurea~
+@93=~oSnak1 (Serpent sortant sa tete de l'herbe) - par Amaurea~
+@94=~oSnak2 (Cobra aux aguets) - par Amaurea~
+@95=~oSnak3 (Cobra avec le cou partiellement gonfle) - par Amaurea~
+@96=~oWolf1 (Loup blanc) - par Amaurea~
+@97=~oWolf2 (Loup blanc et gris) - par Amaurea~
+@98=~oWolf3 (Loup noir) - par Amaurea~
+
+//Geomantic Sorcerer Text
+@100=~Sorcier géomancien~
+@102=~SORCIER GEOMANCIEN : Le clerc tient ses pouvoirs d'une puissance supérieure. Le magicien ne fait confiance qu'aux livres contenant un savoir mystique. Le druide puise ses sorts dans la nature. Mais pour le sorcier géomancien, toutes ces formes de magie ne font qu'une. La géomancie est l'art de canaliser l'énergie magique de nombreuses sources à travers la terre elle-même. Les sorts qu'il lance grâce à ses connexions avec la terre sont le reflet de sa propre volonté.
+
+Avantages :
+-  Peut apprendre des sorts de druide en plus de ceux du sorcier, et les lance depuis le livre de sorts du sorcier.
+-  Au niveau 8, il peut se métamorphoser sous différentes formes animales du druide. Il gagne une utilisation supplémentaire tous les 3 niveaux.
+-  Il peut apprendre la magie de Quintessence de haut niveau.
+
+Inconvénients :
+-  Malus de 15% en gain d’expérience.
+-  La force, la constitution et la dextérité écopent d'une pénalité de -2.
+-  Souffre d'une pénalité de 1 en vitesse d'incantation.
+
+Prérequis :
+-  13 en Sagesse, 9 en Charisme.
+-  Doit être d'alignement partiellement neutre.
+-  La classe de base doit être sorcier.
+
+Restrictions :
+-  N'utilise que les objets de sorcier.
+-  Est considéré comme un sorcier par les PNJ.
+
+
+La magie de Quintessence : 
+
+La Quintessence tire son énergie directement de la magie dans sa forme la plus pure, sans s'encombrer d'intermédiaires comme les déités, la Toile ou des incantations contraignantes. Il s'agit plutôt d'un mélange intuitif entre les forces arcaniques et naturelles du monde qui ne peut être ni enseigné ni accordé.~
+
+@110=~Livre du sorcier géomancien~
+@111=~Livre du sorcier géomancien
+Ce livre permet à un sorcier possédant les caractéristiques adéquates de devenir un sorcier géomancien. Le livre disparaît après utilisation.
+
+SORCIER GEOMANCIEN : Le clerc tient ses pouvoirs d'une puissance supérieure. Le magicien ne fait confiance qu'aux livres contenant un savoir mystique. Le druide puise ses sorts dans la nature. Mais pour le sorcier géomancien, toutes ces formes de magie ne font qu'une. La géomancie est l'art de canaliser l'énergie magique de nombreuses sources à travers la terre elle-même. Les sorts qu'il lance grâce à ses connexions avec la terre sont le reflet de sa propre volonté.
+
+Avantages :
+-  Peut apprendre des sorts de druide en plus de ceux du sorcier, et les lance depuis le livre de sorts du sorcier.
+-  Au niveau 8, il peut se métamorphoser sous différentes formes animales du druide. Il gagne une utilisation supplémentaire tous les 3 niveaux.
+-  Il peut apprendre la magie de Quintessence de haut niveau.
+
+Inconvénients :
+-  Malus de 15% en gain d’expérience.
+-  La force, la constitution et la dextérité écopent d'une pénalité de -2.
+-  Souffre d'une pénalité de 1 en vitesse d'incantation.
+
+Prérequis :
+-  13 en Sagesse, 9 en Charisme.
+-  Doit être d'alignement partiellement neutre.
+-  La classe de base doit être sorcier.
+
+Restrictions:
+-  N'utilise que les objets de sorcier.
+-  Est considéré comme un sorcier par les PNJ.
+
+
+La magie de Quintessence : 
+
+La Quintessence tire son énergie directement de la magie dans sa forme la plus pure, sans s'encombrer d'intermédiaires comme les déités, la Toile ou des incantations contraignantes. Il s'agit plutôt d'un mélange intuitif entre les forces arcaniques et naturelles du monde qui ne peut être ni enseigné ni accordé.~
+
+@69 = ~(se fond dans son environnement naturel)~
+
+// Spell text
+@200=~Projection d'eau~
+@201=~Projection d'eau (Invocation/Evocation)
+Niveau : 1
+Portée : champ visuel du lanceur
+Durée : instantanée 
+Temps d'incantation : 2 
+Zone d'effet : créature ciblée
+Jet de sauvegarde : spécial
+
+Quand le sorcier géomancien lance ce sort, une petite vague d'eau est projetée et frappe la cible pour 1d8 de dégâts. L'impact de la vague affecte les créatures environnantes dans un rayon de 6 mètres, causant 1 point de dégâts à chacune, à moins qu'un jet de sauvegarde contre les sorts avec un bonus de +3 soit réussi.~
+
+@202=~Tornade~
+@203=~Tornade (Invocation/Evocation)
+Niveau : 9
+Portée : champ visuel du lanceur 
+Durée : 5 rounds
+Temps d'incantation : 7 
+Zone d'effet : rayon de 9 mètres
+Jet de sauvegarde : spécial 
+
+Lorsque le sort est lancé, un tourbillon apparaît à l'endroit ciblé pour 5 rounds. Deux fois par round, tous les ennemis dans un rayon de 9 mètres doivent réussir un jet de sauvegarde contre chacun des effets suivants : 
+
+Soufflet : La cible doit réussir un jet de sauvegarde contre les souffles, sous peine d'être éjectée sur une grande distance.
+Armes lâchées : La cible doit réussir un jet de sauvegarde contre les souffles, sous peine de se retrouver désarmée.
+Débris volants : La cible doit réussir un jet de sauvegarde contre les sorts avec un bonus de +2, sous peine d'être assommée par des débris pendant 3 rounds.
+Vents puissants : La cible doit réussir un jet de sauvegarde contre les souffles avec une pénalité de -4 ou voir sa vitesse de mouvement réduite de 25% pendant 1 round.
+
+Deux fois par round, toutes les cibles subissent 2d10 de dégâts causés par les objets volants et le fait d'être projetés contre le sol. Un jet de sauvegarde contre les souffles réussi réduira les dégâts subis de moitié.~
+@204=~Invocation de tertre errant~
+@205=~Invocation de tertre errant (Conjuration/Convocation) 
+Niveau : 9
+Portée : champ visuel du lanceur 
+Durée : 5 heures
+Temps d'incantation : 7 
+Zone d'effet : spéciale 
+Jet de sauvegarde : aucun 
+
+Au lancement du sort, un puissant monticule de terre, arbres et rochers s'élève du sol. Cette masse exécutera les ordres du magicien jusqu'à ce qu'elle soit tuée ou que le sort expire. Ces ordres sont donnés à l'élémentaire par télépathie, il n'y a donc pas de perte de temps due à l'apprentissage de sa langue ou à d'éventuelles incompréhensions.~
+@206=~Tertre mineur~
+@207=~Attaque~
+@208=~Tertre errant~
+@209=~Tertre majeur~
+@210=~Métamorphose Druidique~
+@211=~Métamorphose en Ours~
+@212=~Métamorphose en Forme Naturelle~
+@213=~Métamorphose en Chat~
+@214=~Chat~
+@215=~Métamorphose en Chien~
+@216=~Chien~
+@219=~Métamorphose en Léopard~
+@220=~Léopard~
+@221=~Métamorphose en Elan~
+@222=~Elan~
+@223=~Métamorphose en Panthère~
+@224=~Panthère~
+@225=~Métamorphose en Rat~
+@226=~Métamorphose en Serpent~
+@227=~Serpent~
+@228=~Peur du serpent~
+@229=~Métamorphose en Loup~
+@230=~Loup~
+@231=~Pistage~
+@232=~Pistage
+Grâce à une connaissance approfondie de son environnement, des odeurs et des créatures qui y vivent, un chien peut utiliser la compétence pistage pour se faire une idée du type de créatures de la zone et de la direction dans laquelle elles se trouvent. Des flèches rouges sur les bords de l'écran indiqueront l'emplacement des créatures de la zone.~
+@233=~Chien traqueur de pièges~
+@234=~Morsure venimeuse~
+@235=~Invocation d'une Meute de loups~
+@236=~Attaque furtive de panthère~
+@237=~Explosion psionique~
+
+@250=~Clarté~
+@251=~(CAPACITE DE RANG 1)
+Clarté :
+Grâce à cette capacité, le sorcier géomancien est immunisé contre la surdité, le silence, le fourvoiement magique, la débilité mentale et le charme.~
+
+@252=~Lucidité vocale~
+@253=~(CAPACITE DE RANG 2)
+Lucidité vocale :
+Ayant appris à formuler les composantes vocales des sorts de manière plus efficace, le sorcier géomancien est capable de réduire le temps d'incantation de ses sorts de 2.
+
+Requiert : Clarté.~
+@254=~Maîtrise de l'incantation~
+@255=~(CAPACITE DE RANG 3)
+Maîtrise de l'incantation :
+Grâce à cette capacité, tous les sorts lancés par le sorcier géomancien voient leur durée doublée. Par ailleurs, une fois par round, il peut détecter les formes de magie dissipables dans son environnement immédiat.
+
+Requiert: Lucidité vocale.~
+@256=~Révéler la magie dissipable~
+@257=~Mémorisation de sort supplémentaire~
+@258=~(CAPACITE DE RANG 1)
+Mémorisation de sort supplémentaire :
+En choisissant cette capacité, le magicien peut lancer un sort supplémentaire par niveau.~
+@259=~Connaissance des sorts améliorée~
+@260=~(CAPACITE DE RANG 2)
+Connaissance des sorts améliorée :
+Grâce à votre compréhension approfondie de la magie, vous êtes maintenant capable d'apprendre de nouveaux sorts de prêtre qui n'étaient jusqu'alors pas disponibles pour les druides. Les nouveaux sorts sont : 
+
+Niveau 1 : Sanctuaire
+Niveau 2 : Silence sur 5 mètres
+Niveau 3 : Délivrance de la paralysie
+Niveau 4 : Harmonie défensive
+Niveau 5 : Ordres Chaotiques
+Niveau 6 : Ordre Majeur
+Niveau 7 : Miroir physique
+Niveau 8 : Bouclier des Archontes
+Niveau 9 : Rappel à la vie 
+
+Requiert : Mémorisation de sort supplémentaire.~
+@261=~Amélioration de sort~
+@262=~(CAPACITE DE RANG 3)
+Amélioration de sort :
+Une plus grande compréhension de toutes les forces magiques vous permet de lancer des versions améliorées de plusieurs sorts de magicien. En sélectionnant cette capacité, vous pouvez lancer les sorts suivants : 
+
+1. Projectiles magiques multiples de Mordenkainen
+2. Toile contrôlée 
+3. Armure fantomatique améliorée
+4. Sphère constamment résistante d'Otiluke
+5. Cône de froid givrant
+6. Globe d'invulnérabilité majeur
+7. Explosion à retardement
+8. Immunité à l’énergie
+
+Requiert : Connaissance des sorts améliorée.~
+@263=~Projectiles magiques multiples de Mordenkainen~
+@264=~Projectiles magiques multiples de Mordenkainen (Evocation) 
+Niveau : 1
+Portée : champ visuel du lanceur
+Durée : variable 
+Temps d'incantation : variable 
+Zone d'effet : une créature
+Jets de sauvegarde : aucun
+
+A l'image du sort de magicien populaire, projectile magique, ce sort lance des projectiles précis qui infligent 1d4+1 points de dégâts chacun. Cependant, la variante de Mordenkainen offre des possibilités considérables d'augmenter ou de diminuer massivement les dégâts.
+
+Une incantation réussie de ce sort ne garantit la création que d'un seul projectile magique, mais chaque étape du sort offre une chance de lancer un projectile supplémentaire vers votre ennemi.
+
+1 projectile : 100%
+ + 2 projectiles : 75%
+  + 3 projectiles : 75%
+   + 4 projectiles : 66%
+    + 5 projectiles : 66%
+     + 6 projectiles : 50%
+      + 7 projectiles : 50%
+       + 8 projectiles : 33%
+        + 9 projectiles : 33%
+         + 10 projectiles : 25%
+          + Réinitialisation du sort : 25%
+
+Il est théoriquement possible, bien qu'improbable, que le sort se répète à l'infini. Dans tous les cas, le mage doit maintenir sa concentration pendant le processus d'incantation et peut donc être interrompu par une perturbation.~
+@265=~Toile contrôlée~
+@266=~Toile contrôlée (Evocation) 
+Niveau : 2
+Portée : champ visuel du lanceur
+Durée : 1 tour
+Temps d'incantation : 2 
+Zone d'effet : spéciale 
+Jets de sauvegarde : spécial
+
+Ce sort est identique à la version originale à l'exception d'un point important : il n'affecte pas les membres du groupe. Un sort de toile crée une surface couverte d'un tissage dense et résistant de filaments collants, similaires à ceux d'une toile d'araignée en bien plus grands et solides. Le sort de toile couvre au maximum une zone de 10 mètres de rayon (à peu près de la même taille qu'une boule de feu). Les créatures qui sont prises dans la toile ou la touchent simplement se retrouvent bloquées par les fibres gluantes.
+Quiconque se trouve dans la zone d'effet lorsque le sort est lancé doit réussir un jet de sauvegarde contre les sorts avec une pénalité de -2. Si le jet de sauvegarde est réussi, la créature est libre de quitter la zone. Un jet de sauvegarde raté signifie que la créature est engluée dans la toile, incapable de bouger. A chaque round passé dans la toile, la créature doit réussir un jet de sauvegarde. Dans le cas contraire elle restera immobilisée.~
+@267=~Armure fantomatique améliorée~
+@268=~Armure fantomatique améliorée (Conjuration/Convocation)
+Niveau : 3
+Portée : 0
+Durée : 5 tours
+Temps d'incantation : 1 
+Zone d'effet : le lanceur de sorts
+Jets de sauvegarde : aucun 
+
+Grâce à ce sort, le magicien crée un champ de force magique qui protège la cible comme une armure de plates (CA 2). Ce sort peut être cumulé avec la Dextérité et, dans le cas des guerriers/mages, avec le bonus de bouclier. L'armure fantomatique n'empêche pas de bouger, ne pèse rien et n'encombre pas le bénéficiaire. Elle n'empêche pas de lancer des sorts. Elle dure jusqu'à ce que quelqu'un dissipe le sort ou jusqu'à expiration de sa durée normale.~
+@269=~Sphère constamment résistante d'Otiluke~
+@270=~Sphère constamment résistante d'Otiluke (Altération) 
+Niveau : 4
+Portée : 0
+Durée : 1 tour
+Temps d'incantation : 4
+Zone d'effet : créature ciblée
+Jets de sauvegarde : aucun 
+
+Ce sort crée un globe de force miroitante qui emprisonne la victime. La sphère englobe la cible pour la durée du sort. Elle est complètement invulnérable, sauf à la Dissipation de la magie. Ainsi, la créature emprisonnée est totalement à l'abri, mais ne peut rien faire qui affecte le monde extérieur. Contrairement à la version originale du sort, aucun jet de sauvegarde n'est possible pour la créature ciblée.~
+@271=~Cône de froid givrant~
+@272=~Cône de froid givrant (Evocation)
+Niveau : 5
+Portée : 0 
+Durée : instantanée
+Temps d'incantation : 5 
+Zone d'effet : spéciale 
+Jets de sauvegarde : moitié
+
+Ce sort crée une zone de froid extrême en forme de cône, qui part des mains du magicien et qui mesure 1,5 mètres de long et 30 cm de diamètre par niveau du jeteur de sorts. Il absorbe la chaleur et inflige 20d4+10 points de dégâts qui peuvent être réduits de moitié grâce à un jet de sauvegarde. Chaque cible se trouvant à l’intérieur du cône de froid amélioré doit réussir un jet de sauvegarde supplémentaire ou elle sera gelée pendant 1d4 rounds.~
+@273=~Globe d'invulnérabilité majeur~
+@274=~Globe d'invulnérabilité majeur (Abjuration)
+Niveau : 6
+Portée : 0 
+Durée : 1 round/niveau 
+Temps d'incantation : 6
+Zone d'effet : sphère de 1,5 mètres de rayon
+Jets de sauvegarde : aucun 
+
+Il s'agit ici d'une version améliorée du sort Globe d'invulnérabilité. Il crée une sphère magique immobile autour du lanceur qui le rend invulnérable à tous les sorts de premier, second, troisième, quatrième et cinquième niveau (exemple : les sorts à zone d'effet ne pénètrent pas le globe d'invulnérabilité). N'importe quel sort peut cependant être jeté depuis l'intérieur de la sphère sans pour autant affecter le Globe d'invulnérabilité. Les sorts de sixième niveau et au-delà ne sont pas affectés par le globe. Il est possible de se débarrasser d'un tel globe grâce à une dissipation magique, un Sort d'assaut ou un sort de Perce-magie.~
+@275=~Explosion à retardement~
+@276=~Explosion à retardement (Invocation/Evocation)
+Niveau : 7
+Portée : champ visuel du lanceur
+Durée : spéciale
+Temps d'incantation : 7
+Zone d'effet : rayon de 18 mètres 
+Jets de sauvegarde : 3/4
+
+Ce sort crée une énorme boule de feu qui lévite à un point déterminé par le magicien. Elle reste à cet endroit jusqu'à ce que quelqu'un s'en approche. A ce moment précis, elle explose en infligeant 15d6 points de dégâts, et permet un jet de sauvegarde pour ne subir que trois-quarts des dégâts. L'explosion qui en résulte génère une puissante onde de choc sur un rayon de 18 mètres. Cependant son expansion est relativement lente ce qui permet au lanceur de sort et à son groupe de fuir la zone affectée.~
+@277=~Immunité à l’énergie~
+@278=~Immunité à l’énergie (Abjuration)
+Niveau : 8
+Portée : contact
+Durée : 1 round/niveau
+Temps d'incantation : 8
+Zone d'effet : créature touchée 
+Jets de sauvegarde : aucun 
+
+Lorsque ce sort est lancé, il confère 100% d'immunité contre toutes les attaques à base d'énergie comme le feu, l'acide, la magie et l'électricité, qu'elles proviennent d'une source naturelle ou non. Sont exclues de cette immunité les attaques physiques comme, par exemple, les armes magiques ou le Marteau Spirituel. Toutes les attaques contondantes, de taille ou d'estoc ne seront donc pas affectées par ce sort. Ses effets se prolongent jusqu'à son expiration naturelle ou sa dissipation par une source extérieure. Les incantations multiples de ce sort ne se cumulent pas.~
+@279=~Immunité aux sorts de niveau 1~
+@280=~(CAPACITE DE RANG 1)
+Immunité aux sorts de niveau 1 :
+Cette capacité confère au sorcier géomancien une invulnérabilité totale aux sorts de niveau 1.~
+@281=~Résistance à la magie~
+@282=~(CAPACITE DE RANG 2)
+Résistance à la magie :
+Grâce à cette capacité, le sorcier géomancien voit sa résistance à la magie augmenter de 33%.
+
+Requiert : Immunité aux sorts de niveau 1.~
+@283=~Bénédiction de la Nature~
+@284=~(CAPACITE DE RANG 3)
+Bénédiction de la Nature :
+Les sorciers géomanciens de haut niveau communient avec la Nature. Ils y gagnent une meilleure connexion avec les forces de l'Eau, du Feu et de l'Air, ce qui apporte au sorcier géomancien un bonus permanent de +1 en sagesse et une résistance accrue de 10% au feu, au froid et à l'électricité.
+
+Requiert : Résistance à la magie.~
+@285=~La sagesse et la résistance aux éléments sont améliorées de manière permanente.~
+@286=~Immunités druidiques~
+@287=~(CAPACITE DE RANG 1)
+Immunités druidiques :
+En tant que druide de haut niveau, vous êtes immunisé contre toutes les formes de poisons, maladies et drains de niveau. Les armes non-magiques n'ont aucun effet sur vous et vous ne pouvez pas être victime de sommeil. De plus, vous gagnez 25% de résistance au feu, à l'électricité, au froid et à l'acide.~
+@288=~Transformation élémentaire~
+@289=~(CAPACITE DE RANG 2)
+Transformation élémentaire :
+Grâce à cette capacité, le sorcier géomancien est capable de se métamorphoser en un élémentaire de feu, d'air, de terre ou d'eau (24 dés de vie). Ces formes élémentaires ont différentes forces et faiblesses selon leur nature. Le druide est également soigné de 3d10 points de vie lorsqu'il revient à sa forme humaine. Cette capacité dure 5 tours, ou jusqu'à ce que le druide y mette fin.
+
+Requiert : Immunités druidiques.~
+@290=~Transformation élémentaire (Eau)~
+@291=~Elémentaire de terre~
+@292=~Elémentaire d'eau majeur~
+@293=~Transformation élémentaire (Terre)~
+@294=~Transformation élémentaire (Air)~
+@295=~Elémentaire d'air majeur~
+@296=~Transformation élémentaire (Feu)~
+@297=~Elémentaire de feu~
+@298=~Marche planaire (Terre)~
+@299=~(CAPACITE DE RANG 3)
+Marche planaire (Terre) :
+Grâce à sa connaissance des éléments, le sorcier géomancien est capable fusionner avec n'importe quel type de terrain, et peut ainsi se déplacer à volonté à travers le sol et l'air. Il réapparaît n'importe où sur l'écran sous sa forme humanoïde.
+
+Requiert: Transformation élémentaire.~
+@300=~Déferlante cacophonique~
+@301=~Déferlante cacophonique
+(Magie de Quintessence)
+Ecole : toutes
+Portée : champ visuel du lanceur
+Durée : 3 rounds
+Temps d'incantation : 9
+Zone d'effet : rayon de 13,5 mètres
+Jets de sauvegarde : spécial
+
+En déchaînant les forces élémentaires de l'Air et de l'Eau, le sorcier géomancien peut provoquer un déferlement grandiose de puissance magique : une tempête de glace et d'électricité combinée à des vents violents affectant toutes les créatures dans un rayon de 13,5 mètres. Ce sort n'a presque rien à envier en matière de potentiel de destruction à son proche cousin, Cataclysme ardent. Bien que le mage doive maintenir sa concentration et ne puisse pas se déplacer pendant la canalisation du sort, il conserve suffisamment de contrôle pour éviter de se blesser ou de blesser les membres de son groupe.
+
+Au lancement du sort, un énorme éclair tombe et frappe le sorcier, l'enveloppant dans un champ d'énergie électrique. A l'instant précis de l'impact, des éclairs fusent et frappent toutes les créatures à portée, causant 1d10 points de dégâts. De plus, une tempête de glace se déchaîne pendant 3 rounds. Toutes les 4 secondes (pour un total de 5 fois), elle cause 1d8 points de dégâts de froid. Toutes les créatures prises dans la tempête sont affectées toutes les 4 secondes (5 fois au maximum) soit par une frappe de foudre massive, soit par un lourd bloc de glace, ou alors seront balayées par une petite tornade.
+
+La foudre inflige 1d15 points de dégâts électriques et a 75% de chance de projeter les cibles environnantes en arrière.
+
+Le bloc de glace inflige 2d10 points de dégâts contondants, a 50% de chance d'empêcher la cible de prononcer des incantations pendant 2 rounds, et 25% de chance d'assommer la cible pendant 2 rounds.
+
+La tornade inflige 1d15 points de dégâts tranchants à la cible tout en la projetant en arrière. Cette dernière a aussi 25% de chance de lâcher ses armes.
+
+Pendant cette tempête, le mage devient une sorte de conducteur pour l'énergie de l'eau et de l'électricité. A chaque round, tous les ennemis pris dans la tempête sont frappés soit par un éclair, une vague fracassante ou un cône de froid.
+
+L'éclair fonctionne comme un éclair normal et inflige 1d10 points de dégâts électriques. De plus, il a 50% de chance de génèrer un arc électrique qui a 50% de chance de toucher toutes les cibles environnantes. L'arc électrique inflige 1d5 points de dégâts électriques à tout ceux qu'il touche.
+
+La vague fracassante frappe une seule cible pour 1d20 points de dégâts de froid magique. Cette vague repousse aussi la cible à bonne distance et la ralentit pendant 2 rounds.
+
+Le cône de froid affecte tous les ennemis sur sa trajectoire, causant 1d10 points de dégâts de froid à chacun. Les cibles ont aussi 25% de chance d'être gelées pour 1 round.
+
+Il n'y a aucune échappatoire (pas de jet de sauvegarde).
+
+Requiert : Marche planaire (Terre)~
+@302=~Protection contre la Tempête~
+@303=~Tornade~
+@304=~Frappe de foudre~
+@305=~Eclair~
+@306=~Cône de froid~
+@307=~Vague fracassante~
+@308=~Bloc de glace~
+@309=~Arc électrique~
+@310=~Frappe initiale~
+@311=~Union de la magie~
+@312=~Union de la magie
+(Magie de Quintessence)
+Ecole : toutes
+Durée : instantanée
+Temps d'incantation : 6
+Zone d'effet : rayon de 18 mètres
+Jets de sauvegarde : aucun
+
+Ce sort provoque une puissante onde de choc sur 360 degrés qui rend toutes les créatures à portée vulnérables à toutes les formes de magie, qu'elles soient issues de sorts ou d'armes magiques. Tous les sorts de défense magique sont éradiqués, les résistances aux dégâts magiques sont anéanties et la résistance magique est abaissée à zéro pendant 20 rounds. Tous les sorts dissipables sont également dissipés.
+
+Requiert : Maîtrise de l'incantation des sorts.~
+@313=~Vulnérable à toutes les formes de magie~
+@314=~Futilité arcanique~
+@315=~Futilité arcanique
+(Magie de Quintessence)
+Ecole : toutes
+Durée : 5 rounds
+Temps d'incantation : 1
+Zone d'effet : le lanceur de sorts
+Jets de sauvegarde : aucun
+
+Grâce à ce sort, le mage s'entoure d'une carapace qui l'isole de toutes les formes de magie pendant une courte période. Pendant 5 rounds, il bénéficie d'une immunité totale aux dégâts, effets et armes magiques. De plus, elle confère au joueur 100% de résistance à la magie et l'immunité à l’Arrêt du temps. De part sa nature, ce sort dissipe tous les effets magiques affectant le lanceur mais ne l’empêche pas de lancer de nouveaux sorts affectant l’intérieur comme l’extérieur de la carapace.
+
+Requiert : Bénédiction de la Nature.~
+@316=~Essence des Plans~
+@317=~Essence des Plans
+(Magie de Quintessence)
+Ecole : toutes
+Portée : champ visuel du lanceur
+Durée : 20 rounds
+Temps d'incantation : 9
+Zone d'effet : spéciale
+Jets de sauvegarde : aucun
+
+Ce sort matérialise un orbe d'énergie pure pendant 20 rounds. Cet orbe dispose de nombreuses capacités, offensives comme défensives, et ses effets dépendent de la proximité d'alliés ou d'ennemis. Le lanceur peut profiter de son énergie de diverses façons, mais doit toujours maintenir un contact visuel avec l'orbe pour en garder le contrôle.
+
+Une grande proximité avec l'orbe causera les effets suivants une fois par round :
+
+Ennemis :
+Horreur, Aveuglement, Rayon d'affaiblissement, Délivrance de la magie, Mot secret, Immobilisation des Monstres, Fourvoiement magique.
+
+Tous ces sorts sont lancés comme s'ils l'avaient été par un magicien de niveau 25. De plus, toutes les créatures de 8 dés de vie ou moins sont tuées instantanément, comme si elles avaient été victimes du sort de niveau 6 : Sort de mort.
+
+Alliés :
+Toutes les créatures amicales se régénèrent lentement lorsqu'elles sont proches de l'orbe. De plus, elles bénéficient d'un bonus de 1 à la vitesse d'incantation, aux jets de sauvegarde et au facteur de vitesse, et d'un bonus de +1 pour toutes leurs caractéristiques.
+
+L'orbe peut lancer les sorts suivants :
+
+Phase élémentaire (4 fois par jour)
+L'orbe choisit une cible que viendront frapper 10 orbes magiques. Lorsque la cible est touchée, elle se retrouve déphasée dans un des quatre plans élémentaires pendant une fraction de seconde par chacun des orbes puis elle est ramenée. De ces brefs allers et retours ne résulte qu'un léger dégât élémentaire (1d2), mais à la fin du processus la cible a 20% de chance de souffrir d'un drain de niveaux (5 niveaux), de débilité mentale (4 rounds), ou d'être assommée (4 rounds) par le choc des changements de phase. Il est aussi possible (5% de chance) que la victime ne résiste pas au choc et meure instantanément.
+
+Onde de choc de pure énergie (4 fois par jour)
+Ce sort projette en arrière tous les ennemis proches de l'orbe et leur inflige 1d20 points de dégâts ainsi qu'une réduction de 75% de leur vitesse de déplacement pendant 1 round.
+
+Echange d'énergie (4 fois par jour)
+Tous les ennemis dans la zone ciblée sont frappés par des éclairs qui infligent 5d5 points de dégâts.
+
+Balle électrique (20 fois par jour)
+C'est l'attaque de base de l'orbe, elle inflige 3d6 points de dégâts électriques et 3d6 points de dégâts contondants à une cible unique.
+
+Requiert: Amélioration de sort.~
+@318=~Sphère d'énergie~
+@319=~Echange d'énergie~
+@320=~Phase élémentaire~
+@321=~Dégât élémentaire~
+@322=~Choc de phase~
+@323=~Drainé de 5 niveaux~
+@324=~Victime de débilité mentale~
+@325=~Assommé~
+@326=~A succombé au choc de phase~
+@327=~A résisté au choc de phase~
+@328=~Onde de choc de pure énergie~
+@329=~Balle électrique~
+@330=~<No Text>~
+@331=~Cataclysme ardent~
+@332=~Cataclysme ardent
+(Magie de Quintessence)
+Ecole : toutes
+Portée : champ visuel du lanceur 
+Durée : 5 rounds
+Temps d'incantation : 9 
+Zone d'effet : rayon de 13,5 mètres
+Jets de sauvegarde : spécial 
+
+Le ciel et la terre se fondent en un enfer tourbillonnant de feu et de pierres qui ravage tout sur son passage. Ce sort, qui est le plus destructeur qui soit à votre disposition, blesse tout ce qui se trouve sur son passage excepté le lanceur. La puissance du Cataclysme ardent rivalise avec les pouvoirs des dieux eux-mêmes, et pourrait potentiellement raser de petits villages, sans parler des occupants. Les effets du sort sont automatiquement centrés sur le lanceur pendant 6 rounds, mais, contrairement à d'autres sorts à zone d'effet tels que Déferlante cacophonique, le Cataclysme ardent suit son lanceur de round en round.  
+  
+Lorsque l'incantation initiale est achevée, une énorme colonne de flammes s'abat sur le lanceur, l'entourant d'un globe de feu tout en générant une explosion massive qui inflige 2d10 points de dégâts dans un rayon de 13,5 mètres. Toutes les créatures prises dans l'explosion sont projetées en arrière et affectées par une boule de feu mineure (3d5 de dégâts) ou un rayon de flammes (2d10 x2 points de dégâts et la cible est repoussée par les flammes pendant un round). Quatre secondes après la première éruption, une autre colonne de flammes s'abat et cause une explosion identique suivie par une explosion supplémentaire trois secondes plus tard. Pour finir, une dernière explosion détonne 5 secondes plus tard, et toutes les créatures à portée sont affectées par une boule de feu mineure.
+  
+Au début du troisième round, le sort déclenche une pluie de météores qui inflige 2d5 points de dégâts à chaque round à toutes les créatures qui restent dans la zone. A chaque round, toutes les cibles sont frappées par deux météores (3d5 points de dégâts sur un rayon de 9 mètres), éjectées en arrière et éventuellement assommées pendant un round (25% de chance, jet de sauvegarde contre les sorts avec un bonus de +4).
+  
+Lors du cinquième round, après que le dernier météore soit tombé, le sol se met à trembler violemment pendant deux rounds. Toutes les créatures sont ainsi projetées en tout sens pour 1d10 points de dégâts par round. Le séisme provoque également l'apparition de crevasses enflammées deux fois par round, qui blessent leurs victimes pour 2d8 points de dégâts. De plus, à chaque round, la végétation du sol cherche à agripper les créatures à portée pour les immobiliser pendant 1 round (50% de chances).
+  
+A la fin du sixième round, une dernière colonne de flammes s'abat sur le lanceur et génère trois puissantes ondes de choc enflammées qui carbonisent les victimes pour 2d10 points de dégâts chacune.
+
+Requiert : Marche planaire (Terre).~
+@333=~Marche planaire (Terre) :
+Grâce à sa connaissance des éléments, le sorcier géomancien est capable de fusionner avec n'importe quel type de terrain, et peut ainsi se déplacer à volonté à travers le sol et l'air. Il réapparaît n'importe où sur l'écran sous forme humanoïde.~
+
+
+// WeiDU prompts
+@-1000= "Le mod %TP2_FILE_NAME% contient"
+@-1001= "composants optionnels distincts.
+Pour gagner du temps, vous pouvez choisir ce que vous souhaitez faire d'eux
+au niveau general plutot que de repondre aux questions pour chacun.
+"
+@-1002= "Que faut-il faire de tous les composants qui NE sont PAS ENCORE installes ?
+Les [I]nstaller, les [S]auter, dem[A]nder pour chacun ? "
+@-1003= "Que faut-il faire de tous les composants qui sont DEJA installes ?
+Les [R]einstaller, les s[U]pprimer, les [S]auter, dem[A]nder pour chacun ? "
+
+@-1004= "S'IL VOUS PLAIT, envoyez par e-mail le fichier"
+@-1005= "a"
+
+@-1006= "Installer le composant ["
+@-1007= "] ?
+[R]einstaller, co[N]server, s[U]pprimer ou [Q]uitter ? "
+@-1008= "] ?
+[I]nstaller, [N]e pas installer ou [Q]uitter ? "
+
+@-1009= "Entrez une partie du nom du module : "
+
+@-1010= "Reinstallation du composant ["
+@-1011= "] "
+@-1012= "Reinstallation dans la langue"
+
+@-1013= "Suppression de l'ancienne installation de ["
+@-1014= "] au prealable..."
+@-1015= "SUPPRESSION REUSSIE DE L'ANCIEN"
+
+@-1016= "Installation en cours"
+@-1017= "ERREUR pendant l'installation de ["
+@-1018= "], retour a l'etat anterieur"
+@-1019= "INSTALLATION REUSSIE"
+@-1020= "Saute"
+@-1021= "Suppression de ["
+@-1022= "] (composant #"
+@-1023= ")"
+@-1024= "SUPPRESSION REUSSIE DE ["
+
+@-1025= "] ?
+[R]einstaller, co[N]server, s[U]pprimer, [Q]uitter ou choisir un parmi :"
+@-1026= "] ?
+[N]e pas installer, [Q]uitter ou choisir un parmi :"
+@-1027= " (installe actuellement)"
+
+@-1028= "Souhaitez-vous afficher les composants de ["
+@-1029= "] ?
+[Y]Oui, [N]on ? "
+
+@-1030= "] ?
+choisir un parmi :"
+@-1031= "] ?
+[R]einstaller, co[N]server, [Q]uitter ou choisir un parmi :"
+@-1032= "INSTALLATION ECHOUEE A CAUSE D'ERREURS"
+@-1033= "INSTALLATION AVEC DES ALERTES"
+@-1034= "Souhaitez-vous afficher les instructions (ReadMe) ? [Y]Oui [N]on"
+@-1035= "Dans la langue"
+
+@-1036= "Saute le GROUPE ["
+@-1037= "] pour cause d'absence des pre-requis."
+
+@-1038= "dem[A]nder pour chaque composant, tout [S]auter, ou choisir une selection pre-definie :"
+@-1039= "dem[A]nder pour chaque composant, [R]einstaller la configuration courante, tout s[U]pprimer, tout [S]auter, ou choisir une selection pre-definie :" 

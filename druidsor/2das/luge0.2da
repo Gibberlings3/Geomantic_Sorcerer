@@ -1,0 +1,20 @@
+2DA V1.0
+*
+        ABILITY       ICON        STRREF    MIN_LEV   MAX_LEVEL  NUM_ALLOWED  PREREQUISITE EXCLUDED_BY   ALIGNMENT_RESTRICT
+1       AP_CA#CLAR     *          *         1         99         1            *            *             *
+2       AP_CA#VLUC     *          *         1         99         1            AP_CA#CLAR   *             *
+3       AP_CA#SCM      *          *         1         99         1            AP_CA#VLUC   *             *
+4       GA_CA#UOM      *          *         1         99         1            AP_CA#SCM    *             *
+5       AP_CA#BSM      *          *         1         99         1            *            *             *
+6       AP_CA#BSK      *          *         1         99         1            AP_CA#BSM    *             *
+7       AP_CA#SPE      *          *         1         99         1            AP_CA#BSK    *             *
+8       GA_CA#EOP      *          *         1         99         1            AP_CA#SPE    *             *
+9       AP_CA#MIL1S    *          *         1         99         1            *            *             *
+10      AP_CA#MR33     *          *         1         99         1            AP_CA#MIL1S  *             *
+11      AP_CA#BLON     *          *         1         99         1            AP_CA#MR33   *             *
+12      GA_CA#AF       *          *         1         99         1            AP_CA#BLON   *             *
+13      AP_CA#DSDI     *          *         1         99         1            *            *             *
+14      GA_CA#ELTR     *          *         1         99         1            AP_CA#DSDI   *             *
+15      GA_CA#EP2      *          *         1         99         1            GA_CA#ELTR   *             *
+16      GA_CA#DSTC     *          *         1         99         1            GA_CA#EP2    *             *
+17      GA_CA#FC       *          *         1         99         1            GA_CA#EP2    *             *

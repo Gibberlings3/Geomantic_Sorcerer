@@ -1,0 +1,582 @@
+@1=~Geomantic Sorcerer Kit~
+@2=~Throne of Bhaal/EE Required~
+@3=~Install Modmerge before installing to a Siege of Dragonspear game.~
+@4=~The portrait options are not available for EE games.~
+@10=~Invalid Class/Statistics/Alignment Combination~
+@11=~Can't install if mod component Female Portraits for Shapeshifting is installed~
+@12=~Need Geomantic Sorcerer kit installed before you can install this component~
+@13=~Can't install if mod component Male Portraits for Shapeshifting is installed~
+@14=~Can't install unless mod component Male or Female Portraits for Shapeshifting is installed~
+@20=~Portraits for Druidic Shapeshifting
+DO NOT INSTALL THIS IF YOU ARE GOING TO GIVE THE KIT TO A NPC~
+@21=~fCast02 (Green Hooded, possibly elven/half-elven)~
+@22=~fCast15 (Tatooed caster)~
+@23=~fCast16 (With metal ornamentation)~
+@24=~fCast18 (Brown Hair human/half-elf)~
+@25=~fDruid7 (Druid with headdress)~
+@26=~fDruid9 (Red headed druid type in brown robe)~
+@27=~fGeo01 (DESCRIPTION) - By Amedyr~
+@28=~fHaEl1 (Elf/Half-Elf caster type) - By Amaurea~
+@29=~fHaEl2 (White robed half-elf/elf) - By Amaurea~
+@30=~Male PCs~
+@31=~Female PCs~
+@40=~Male Humanoid Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@42=~Bear Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@43=~Cat Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@44=~Dog Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@45=~Leopard Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@46=~Male Moose Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@47=~Panther Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@48=~Rat Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@49=~Snake Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@50=~Wolf Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@51=~Female Humanoid Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@52=~Female Moose Form Portrait
+(Refer to the Readme's Portrait section to view the portraits)~
+@60=~mCast2 (Lightning Caster)~
+@61=~mCast5 (Blond Hooded Caster)~
+@62=~mDruid2 (Druid with face paint) - By Amaurea~
+@63=~mDruid (Druid in Vegetation)~
+@64=~mElf1 (Slightly dark skinned elf)~
+@65=~mElf2 (Elf caster type, open collar) - By Amaurea~
+@66=~mElf3 (Elf caster type, closeup) - By Amaurea~
+@67=~mGeo01 (Caster with sigils and runes) - By Amedyr~
+@68=~mHum7 (Red headed human) - By Amaurea~
+@99=~oBear1 (Dark Brown looking over shoulder) - By Amaurea~
+@70=~oBear2 (Lighter Brown with partially open smiling mouth) - By Amaurea~
+@71=~oBear3 (Serious looking bear) - By Amaurea~
+@72=~oCat1 (Yellow and orange mottled with white bib) - By Amaurea~
+@73=~oCat2 (Grey with black bands around neck) - By Amaurea~
+@74=~oCat3 (Grey) - By Amaurea~
+@75=~oDog1 (Grey Hound) - By Amaurea~
+@76=~oDog2 (Beige shaggy haired dog) - By Amaurea~
+@77=~oDog3 (Border Collie) - By Amaurea, picture of Skye by Caedwyr~
+@78=~oLeop1 (Leopard) - By Amaurea~
+@79=~oLeop2 (Leopard with snow) - By Amaurea~
+@80=~oLeop3 (Leopard with tongue) - By Amaurea~
+@81=~omMoo1 (Moose with head down) - By Amaurea~
+@82=~omMoo2 (Moose with head in profile) - By Amaurea~
+@83=~omMoo3 (Chestnut coloured moose) - By Amaurea~
+@84=~ofMoo1 (Semi-profile perspective) - By Amaurea~
+@85=~ofMoo2 (Chestnut coloured moose with head down) - By Amaurea~
+@86=~ofMoo3 (Chestnut coloured moose with head up) - By Amaurea~
+@87=~oPan1 (Shiny black panther) - By Amaurea~
+@88=~oPan2 (Panther with head cocked to one side) - By Amaurea~
+@89=~oPan3 (Panther with mouth partially open) - By Amaurea~
+@90=~oRat1 (Beige Rat) - By Amaurea~
+@91=~oRat2 (Rat sticking head out of hole) - By Amaurea~
+@92=~oRat3 (Light rat with food) - By Amaurea~
+@93=~oSnak1 (Snake raising head off grass) - By Amaurea~
+@94=~oSnak2 (Cobra smelling its surroundings) - By Amaurea~
+@95=~oSnak3 (Cobra with hood partially extended) - By Amaurea~
+@96=~oWolf1 (White wolf) - By Amaurea~
+@97=~oWolf2 (Grey and white wolf) - By Amaurea~
+@98=~oWolf3 (Black Wolf) - By Amaurea~
+
+//Geomantic Sorcerer Text
+@100=~Geomantic Sorcerer~
+@102=~GEOMANTIC SORCERER: The cleric reaches out to a higher power. The wizard trusts only in eldritch tomes. The druid looks to nature for her spells. To the geomantic sorcerer, however, all magic is the same. Geomancy is the art of channeling magical energy from many sources through the land itself. The spells he casts through his connections with the earth are reflections of his own strength of will.
+
+Advantages:
+-  Learns druid spells in addition to sorcerer spells and casts them from the sorcerer's spellbook.
+-  At level 8, can shapeshift into new druid animal forms, gains an additional use every 3 levels.
+-  Can learn high level Quintessence Magic.
+
+Disadvantages:
+-  Has a 15% penalty to experience.
+-  Strength, Constitution, and Dexterity have a -2 penalty.
+-  Has a penalty of 1 to casting speed.
+
+Requirements:
+-  13 Wisdom, 9 Charisma.
+-  Must be of any Neutral alignment.
+-  Must have a base class of sorcerer.
+
+
+Restrictions:
+-  Sorcerer Item usage.
+-  Recognized as a sorcerer.
+
+
+Quintessence Magic: 
+
+Quintessence Magic draws directly upon magic in its basic form, free of intermediaries such as deities, the Weave, or structured spellcasting. It is an inherently intuitive blending of the arcane and the natural forces in the world and cannot be taught or granted.~
+
+@110=~Tome of the Geomantic Sorcerer~
+@111=~Tome of the Geomantic Sorcerer
+This tome allows a sorcerer with the correct characteristics to become a geomantic sorcerer.  The tome is consumed upon use.
+
+GEOMANTIC SORCERER: The cleric reaches out to a higher power. The wizard trusts only in eldritch tomes. The druid looks to nature for her spells. To the geomantic sorcerer, however, all magic is the same. Geomancy is the art of channeling magical energy from many sources through the land itself. The spells he casts through his connections with the earth are reflections of his own strength of will.
+
+Advantages:
+-  Learns druid spells in addition to sorcerer spells and casts them from the sorcerer's spellbook.
+-  At level 8, can shapeshift into new druid animal forms, gains an additional use every 3 levels.
+-  Can learn high level Quintessence Magic.
+
+Disadvantages:
+-  Has a 15% penalty to experience.
+-  Strength, Constitution, and Dexterity have a -2 penalty.
+-  Has a penalty of 1 to casting speed.
+
+Requirements:
+-  13 Wisdom, 9 Charisma.
+-  Must be of any Neutral alignment.
+-  Must have a base class of sorcerer.
+
+
+Restrictions:
+-  Sorcerer Item usage.
+-  Recognized as a sorcerer.
+
+
+Quintessence Magic: 
+
+Quintessence Magic draws directly upon magic in its basic form, free of intermediaries such as deities, the Weave, or structured spellcasting. It is an inherently intuitive blending of the arcane and the natural forces in the world and cannot be taught or granted.~
+
+@69 = ~(blends into natural surroundings)~
+
+// Spell text
+@200=~Wave Spray~
+@201=~Wave Spray (Invocation/Evocation)
+Level: 1
+Range: Visual range of caster
+Duration: Instantaneous 
+Casting Time: 2 
+Area of Effect: Target creature
+Saving Throw: Special
+
+When the geomantic sorcerer casts this spell, a small wave of water will fly out and strike the target for 1d8 points of damage.  The crash of the wave will affect those around it in a 20 foot radius, causing 1 point of damage to each affected creature unless a save vs. spells is made at a +3 bonus.~
+
+@202=~Tornado~
+@203=~Tornado (Invocation/Evocation)
+Level: 9
+Range: Visual sight of caster 
+Duration: 5 rounds
+Casting Time: 7 
+Area of Effect: 30-foot radius
+Saving Throw: Special 
+
+When cast, a whirlwind appears at the selected spot for 5 rounds.  Twice per round, all enemies within a 30 foot radius must make a successful saving throw against each of the following possible effects:
+
+Wing Buffet: Save vs. Breath or be blown back a great distance.
+Dropped Weapons: Save vs. Breath or have your weapons blown off.
+Flying Debris: Save vs. Spells at a +2 bonus or be knocked unconscious by flying debris for 3 rounds.
+Strong Winds: Save vs. Breath at a -4 penalty or have one's movement rate slowed to 25% for 1 round.
+
+Twice per round, all victims will take 2d10 points of damage from being slammed into the ground or hit by flying objects.  A successful save vs. breath will reduce the damage by half.~
+
+@204=~Summon Shambling Mound~
+@205=~Summon Shambling Mound (Conjuration/Summoning) 
+Level: 9
+Range: Visual sight of caster 
+Duration: 5 hours
+Casting Time: 7 
+Area of Effect: Special 
+Saving Throw: None 
+
+Upon casting, a powerful mound of earth and tree and rock will rise out of the ground.  The mound will do the bidding of the caster until it is slain, or the duration of the spell runs out.  All of the commands given to the elemental are done telepathically so there is no time lost due to miscommunication, and no need to know the language of the summoned creature.~
+@206=~Lesser Shambler~
+@207=~Attack~
+@208=~Shambling Mound~
+@209=~Greater Shambler~
+
+
+@210=~Druidic Shapeshift~
+@211=~Shapeshift Bear~
+@212=~Shapeshift Natural Form~
+@213=~Shapeshift Cat~
+@214=~Cat~
+@215=~Shapeshift Dog~
+@216=~Dog~
+@219=~Shapeshift Leopard~
+@220=~Leopard~
+@221=~Shapeshift Moose~
+@222=~Moose~
+@223=~Shapeshift Panther~
+@224=~Panther~
+@225=~Shapeshift Rat~
+@226=~Shapeshift Snake~
+@227=~Snake~
+@228=~Snake Fear~
+@229=~Shapeshift Wolf~
+@230=~Wolf~
+@231=~Tracking~
+@232=~Tracking
+With an intimate knowledge of his surroundings, scents, and the creatures that live within them, a dog can use the Tracking ability to give himself a general idea of what creatures are in an area and which direction they are. Red arrows at the edge of the screen will point in the general direction of the creatures in the area.~
+@233=~Dog Trap Sniffing~
+@234=~Venom Bite~
+@235=~Summon Wolf Pack~
+@236=~Panther Stealth Attack~
+@237=~Psionic Blast~
+
+@250=~Clarity~
+@251=~(TIER 1 ABILITY)
+Clarity:
+With this ability, the geomantic sorcerer becomes immune to deafness, silence, miscast magic, feeblemind, and charm.~
+
+@252=~Vocal Lucidity~
+@253=~(TIER 2 ABILITY)
+Vocal Lucidity:
+The geomantic sorcerer, having learned to deliver the vocal components of spells with greater efficiency, is now able to reduce all spell casting times by 2.
+
+
+Requires: Clarity.~
+
+@254=~Spellcasting Mastery~
+@255=~(TIER 3 ABILITY)
+Spellcasting Mastery
+With this ability, all spells cast by the geomantic sorcerer will have twice the duration as normal.  Additionally, the geomantic sorcerer is able detect dispellable magic in his immediate area at will once per round.
+
+
+Requires: Vocal Lucidity.~
+@256=~Reveal Dispellable Magic~
+
+@257=~Bonus Spell Memorization~
+@258=~(TIER 1 ABILITY)
+Bonus Spell Memorization:
+Selecting this ability allows the magic-user to cast one extra spell per level.~
+
+@259=~Bonus Spell Knowledge~
+@260=~(TIER 2 ABILITY)
+Bonus Spell Knowledge:
+With your increased understanding of magic, you are now able to learn new priest spells previously not given to druids.  The new spells are:
+
+Level 1: Sanctuary
+Level 2: Silence, 15' Radius
+Level 3: Remove Paralysis
+Level 4: Defensive Harmony
+Level 5: Chaotic Commands
+Level 6: Greater Command
+Level 7: Physical Mirror
+Level 8: Shield of the Archons
+Level 9: Raise Dead 
+
+
+Requires: Bonus Spell Memorization.~
+
+@261=~Spell Enhancement~
+@262=~(TIER 3 ABILITY)
+Spell Enhancement:
+Your greater understanding of all magical forces allows you to cast improved versions of several wizard spells.  By selecting this ability, you may cast the following spells:
+
+1. Mordenkainen's Multiplicative Magic Missile
+2. Controlled Web
+3. Improved Ghost Armor
+4. Otiluke's Consistently Resilient Sphere
+5. Cone of Freezing Cold
+6. Major Globe of Invulnerability
+7. Delayed Blast Explosion
+8. Immunity to Energy
+
+
+Requires: Bonus Spell Knowledge.~
+@263=~Mordenkainen's Multiplicative Magic Missile~
+@264=~Mordenkainen's Multiplicative Magic Missile (Evocation) 
+Level: 1
+Range: Visual range of caster 
+Duration: Variable 
+Casting Time: Variable 
+Area of Effect: 1 creature
+Saving Throw: None 
+
+Like the popular wizard spell, Magic Missile, this spell sends out accurate missiles that inflict 1d4+1 points of damage each.  Unlike Magic Missile, Mordenkainen's Multiplicative variant increases the possibilities for massive and minimal damage immensely.  
+
+A successful casting of this spell only guarantees the creation of a single magic missile, but at every step of the spell there is the possibility of sending additional missiles at your enemy.
+
+1 missile: 100%
+ + 2 missiles: 75%
+  + 3 missiles: 75%
+   + 4 missiles: 66%
+    + 5 missiles: 66%
+     + 6 missiles: 50%
+      + 7 missiles: 50%
+       + 8 missiles: 33%
+        + 9 missiles: 33%
+         + 10 missiles: 25%
+          + Restart spell: 25%
+
+It is theoretically possible, if improbable, that this spell can repeat itself an infinite number of times.  In any case, the caster must maintain concentration during the process, and thus the possibilities of the spell may be brought to a halt by spell disruption.~
+@265=~Controlled Web~
+@266=~Controlled Web (Evocation) 
+Level: 2
+Range: Visual sight of caster
+Duration: 1 turn
+Casting Time: 2 
+Area of Effect: Special 
+Saving Throw: Special
+
+This spell is identical to its original incarnation with the notable exception that it does not affect party members.  A web spell creates a many-layered mass of strong, sticky strands similar to spider webs but far larger and tougher. The web spell covers a maximum area of about 30 feet in radius (roughly the same size as a fireball). Creatures caught within webs, or simply touching them, become stuck among the gluey fibers. 
+Anyone in the area when the spell is cast must roll a saving throw vs. spell with a -2 penalty. If the saving throw is successful, then the creature is free to move out of the area.  A failed saving throw means the creature is stuck in the webs, unable to move.  Each round that a creature remains in the web, he must make a saving throw or be unable to move.~
+@267=~Improved Ghost Armor~
+@268=~Improved Ghost Armor (Conjuration/Summoning)
+Level: 3
+Range:  0
+Duration: 5 turns
+Casting Time: 1 
+Area of Effect: The caster
+Saving Throw: None 
+
+By means of this spell, the wizard creates a magical field of force that serves as if it were field plate armor (AC 2). It is cumulative with Dexterity and, because of the enhanced nature of this spell, with armor and shield bonuses. The armor spell does not hinder movement, adds no weight or encumbrance, nor does it hinder spellcasting. It lasts until successfully dispelled or until the duration expires.~
+@269=~Otiluke's Consistently Resilient Sphere~
+@270=~Otiluke's Consistently Resilient Sphere (Alteration) 
+Level: 4
+Range: 0
+Duration: 1 turn
+Casting Time: 4
+Area of Effect: Target creature
+Saving Throw: None
+
+When this spell is cast, the result is a globe of shimmering force that encloses the subject creature.  The resilient sphere will contain its subject for the duration of the spell.  The sphere is completely immune to all damage.  Actually, the only method of removing the sphere is a successful dispel magic.  Hence the creature caught inside the globe is completely safe from all attacks, but at the same time is completely unable to affect the outside world. Unlike the original variant of this spell, this spell cannot be saved against.~
+@271=~Cone of Freezing Cold~
+@272=~Cone of Freezing Cold (Evocation) 
+Level: 5
+Range: 0 
+Duration: Instantaneous 
+Casting Time: 5 
+Area of Effect: Special 
+Saving Throw: 1/2
+
+When this spell is cast, it causes a cone-shaped area of extreme cold, originating at the wizard's hand and extending outward in a cone five feet long and one foot in diameter per level of the caster. It drains heat and causes 20d4 + 10 points of damage, with a save for half damage.  Every target that is within the enhanced Cone of Cold's range must make an additional saving throw or be frozen for 1d4 rounds.~
+@273=~Major Globe of Invulnerability~
+@274=~Major Globe of Invulnerability (Abjuration) 
+Level: 6
+Range: 0 
+Duration: 1 round/level 
+Casting Time: 6
+Area of Effect: 5-foot-radius sphere 
+Saving Throw: None 
+
+This spell is a more powerful version of Glove of Invulnerability, creating an immobile, faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, 3rd- 4th- and 5th-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the globe of invulnerability). This includes innate abilities and effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the globe. Sixth and higher level spells are not affected by the globe. The globe can be brought down by a successful dispel magic spell, as well as other forms of magical attack such as Spellstrike and Pierce Magic.~
+@275=~Delayed Blast Explosion~
+@276=~Delayed Blast Explosion (Invocation/Evocation) 
+Level: 7
+Range: Visual range of caster
+Duration: Special
+Casting Time: 7
+Area of Effect: 60' radius 
+Saving Throw: 3/4
+
+This spell creates a massive fireball that hovers at a point determined by the caster.  The fireball will stay in position until someone walks too close to it, at which point it will explode for 15d6 points of damage with a save vs. spell for three-quarters damage. The resulting explosion creates a massive expanding shockwave that stretches out in a 60-foot radius.  Its relatively slow expansion gives the caster and his party time to flee.~
+@277=~Immunity to Energy~
+@278=~Immunity to Energy 
+(Abjuration) 
+Level: 8
+Range: Touch 
+Duration: 1 round /level
+Casting Time: 8
+Area of Effect: Creature touched 
+Saving Throw: None 
+
+When the spell is cast it confers 100% immunity against all energy attacks such as fire, cold, acid, magic and electricity whether magical or non-magical such as spells, weapons, wands, breath weapons, etc.  This excludes any physical attacks and spell-created weapons, such as Enchanted weapon and Spiritual Hammer.  In other words, any physical damage such as piercing, blunt or slashing will get through.  This effect lasts for the duration of the spell or until dispelled. Multiple castings of this spell are not cumulative.~
+
+@279=~Immunity to Level 1 Spells~
+@280=~(TIER 1 ABILITY)
+Immunity to Level 1 Spells
+This ability confers upon the geomantic sorcerer complete invulnerability to all level 1 spells.~
+
+@281=~Magic Resistance~
+@282=~(TIER 2 ABILITY)
+Magic Resistance:
+By selecting this ability, the geomantic sorcerer will gain an additional 33% magic resistance.
+
+
+Requires: Immunity to Level 1 Spells.~
+
+@283=~Blessing of Nature~
+@284=~(TIER 3 ABILITY)
+Blessing of Nature
+High-level geomantic sorcerers maintain a closer link to Nature herself. This provides a stronger connection to the powers of Water, Fire and Air which grant the geomantic sorcerer a permanent +1 bonus to Wisdom and 10% bonuses to Fire, Cold, and Lightning resistances.
+
+
+Requires: Magic Resistance.~
+@285=~Wisdom and resistance to the Elements have been permanently increased.~
+
+@286=~Druid Immunities~
+@287=~(TIER 1 ABILITY)
+Druid Immunities:
+As a high level druid, you are immune to all forms of poison, disease, and level drain.  Non-magical weapons have no effect upon you, and you cannot be forcefully put to sleep.  In addition, you gain an additional 25% resistance to fire, electricity, cold, and acid.~
+
+@288=~Elemental Transformation~
+@289=~(TIER 2 ABILITY)
+Elemental Transformation:
+With this ability, the geomantic sorcerer will now be able to shapeshift into a 24HD elemental of fire, air, earth, or water. These elemental forms have different strengths and weaknesses according to their nature. When the druid returns to human form, he is also healed 3D10 damage. The ability lasts 5 turns, or until the druid decides during the duration of the ability.
+
+
+Requires: Druidic Immunities.~
+@290=~Water Elemental Transformation~
+@291=~Earth Elemental~
+@292=~Greater Water Elemental~
+@293=~Earth Elemental Transformation~
+@294=~Air Elemental Transformation~
+@295=~Greater Air Elemental~
+@296=~Fire Elemental Transformation~
+@297=~Fire Elemental~
+
+@298=~Earthly Planeswalking~
+@299=~(TIER 3 ABILITY)
+Earthly Planeswalking:
+Having mastered the elements, it is now possible for the geomantic sorcerer to meld into any terrestrial environment, moving through the ground or air at will, reapprearing anywhere onscreen in humanoid form.
+
+
+Requires: Elemental Transformation.~
+
+@300=~Torrential Cacophony~
+@301=~Torrential Cacophony
+(Quintessence Magic)
+School: Any School
+Range: Visual sight of caster
+Duration: 3 rounds
+Casting Time: 9
+Area of Effect: 45-foot radius
+Saving Throw: Special
+
+Harnessing the elemental powers of Air and Water, the geomantic sorcerer is able to unleash an awesome display of magical might. A storm of ice, electricity, and raging winds affecting everyone within a 30 foot radius, this spell is second only to its sibling, Fiery Cataclysm, in pure destructive potential. Although the mage must maintain concentration as he channels the spell and will not be able to move from his location, he will be able to maintain enough control to prevent any damage upon himself or his party.
+
+When cast, a massive lightning bolt comes down and strikes the sorcerer, shrouding him in a field of electrical energy. At the precise moment of the blast, lightning bolts fly out and strike everyone within range, dealing 1d10 points of damage. Overhead, an Ice Storm will rage for 3 rounds. Every 4 seconds (for a total of 5 times), it causes 1d8 points of cold damage. Everyone caught in the storm will either be struck by a massive Lightning Strike, a large Ice Boulder, or be swept up by a small Whirlwind, once every 4 seconds (5 times maximum).
+
+The Lightning Strike does 1d15 points of electrical damage and has a 75% chance of knocking all targets around it backwards.
+
+The Ice Boulder deals 2d10 points of crushing damage and has a 50% chance of preventing its target from vocalizing spells for 2 rounds and a 25% chance of knocking the target unconscious for 2 rounds.
+
+The Whirlwind deals 1d15 points of slashing damage while simultaneously blowing its target back. There is a 25% chance that the target will have his or her weapons blown off.
+
+During this storm, the caster becomes a conduit of electricity and water. Each round, all enemies within the storm will either be struck by a Lightning Bolt, a Smashing Wave of water, or a Cone of Cold.
+
+The Lightning Bolt behaves as a normal lightning bolt and does 1d10 points of electrical damage. There is a 50% chance that the bolt will create an Electrical Arc, which has a 50% chance to jump across all targets within the vicinity. The Electrical Arc deals 1d5 points of electrical damage to everyone it hits.
+
+The Smashing Wave strikes a single individual, dealing 1d20 points of magical cold damage. This wave will wash the target back a good distance and, cause the target to move at half-speed for 2 rounds.
+
+The Cone of Cold affects all enemies in its path, dealing 1d10 points of cold damage. This blast has a 25% chance of freezing its targets for 1 round.
+
+There is no save.
+
+
+Requires: Earthly Planeswalking.~
+@302=~Protection from the Storm~
+@303=~Whirlwind~
+@304=~Lightning Strike~
+@305=~Lightning Bolt~
+@306=~Cone of Cold~
+@307=~Smashing Wave~
+@308=~Ice Boulder~
+@309=~Electrical Arc~
+@310=~Initial Strike~
+
+@311=~Union of Magic~
+@312=~Union of Magic
+(Quintessence Magic)
+School: Any School
+Duration: Instantaneous
+Casting Time: 6
+Area of Effect: 60-foot radius
+Saving Throw: None
+
+This powerful spell sends out a 360 degree shockwave, causing everyone within its radius to become vulnerable to magic in all its forms, whether it be weaponry or spellcraft. All magical defense spells are eradicated, magical damage resistance is made nonexistent, magic resistance is lowered to nothing for 20 rounds, and all dispellable magics are removed.
+
+
+Requires: Spell Casting Mastery.~
+@313=~Vulnerable to all forms of magic~
+
+@314=~Arcane Futility~
+@315=~Arcane Futility
+(Quintessence Magic)
+School: Any School
+Duration: 5 rounds
+Casting Time: 1
+Area of Effect: Self
+Saving Throw: None
+
+With this spell, the caster encases himself within a shell that prevents all magical energy from entering for a short time, regardless of its form. For 5 rounds, the caster gains complete immunity to magical damage, direct magical effects, and magical weaponry. In addition, it grants the player 100% magic resistance and immunity to timestop. Because of the power of the spell, all magical effects on the caster are dispelled upon casting, but for the duration of the spell the player is free to cast spells both within and outside of the shell.
+
+
+Requires: Blessing of Nature.~
+
+@316=~Essence of the Planes~
+@317=~Essence of the Planes
+(Quintessence Magic)
+School: Any School
+Range: Visual range of caster
+Duration: 20 rounds
+Casting Time: 9
+Area of Effect:  Special
+Saving Throw: None
+
+This spell summons an Orb of Pure Energy for 20 rounds.  This Orb has many abilities, both offensive and defensive, and its mere proximity to both friend and foe has significant effect.  The caster can shape its energy into many different uses, but must remain within visual distance to maintain control.
+
+Close proximity to the orb will result in the following effects, occurring once each round:
+
+Enemies:
+Horror, Blindness, Ray of Enfeeblement, Remove Magic, Secret Word, Hold Monster, Miscast Magic.
+
+All of these spells are cast identically to their wizard-spell counterparts as though the Orb were a 25th level wizard. In addition, all creatures of 8 hit dice or lower are instantly slain, as per the 6th level wizard spell, Death Spell.
+
+Allies:
+All friendly creatures slowly regenerate when near the Orb.  In addition, they gain a bonus of 1 to their casting speed, a +1 bonus to all stats, a bonus of 1 to all saving throws, and a bonus of 1 to their speed factor.
+
+The Orb is able to cast the following spells:
+
+Elemental Phasing (four times per day)
+The Orb selects a target and sends 10 magical orbs flying at it.  Each of these orbs, upon hitting the target, will phase the victim briefly into one of the 4 elemental planes for a split second before bringing them back.  These short forays will result in a small amount of elemental damage (1d2), although at the end of the journey there is a 20% chance that the target will be level drained (5 levels), feebleminded (4 rounds), or stunned (4 rounds) from the shock of travel.  There is a 5% chance that the victim will not be able to withstand the shock and will die instantly.
+
+Energy Shockwave (four times per day)
+This spell sends all enemies near the orb flying backwards, dealing 1d20 points of damage and slowing their movement rate by 75% for 1 round.
+
+Energy Exchange (four times per day)
+All enemies within the selected radius will be struck by lightning bolts, each dealing 5d5 points of damage.
+
+Ball Electricity (twenty times per day)
+This is the Orb's basic attack which deals 3d6 points of electrical damage and 3d6 points of crushing damage to a single target.
+
+
+Requires: Spell Enhancement.~
+@318=~Sphere of Energy~
+@319=~Energy Exchange~
+@320=~Elemental Phasing~
+@321=~Elemental Damage~
+@322=~Travel Shock~
+@323=~Drained 5 levels~
+@324=~Feebleminded~
+@325=~Stunned~
+@326=~Died from travel shock~
+@327=~Is unaffected by travel shock~
+@328=~Energy Shockwave~
+@329=~Ball Electricity~
+@330=~<No Text>~
+
+@331=~Fiery Cataclysm~
+@332=~Fiery Cataclysm
+(Quintessence Magic)
+School: Any School
+Range: Visual sight of caster 
+Duration: 5 rounds
+Casting Time: 9 
+Area of Effect: 45-foot radius
+Saving Throw: Special 
+  
+A devastating inferno of fire and rock that billows from the sky and grasps from the earth.  It is the single most destructive spell available and will harm everything in its path save the caster.  Fiery Cataclysm’s power rivals that of the Gods themselves, and has the potential to level small villages, let alone its occupants.  The effects of the spell are automatically centered upon the caster for 6 rounds, but unlike other area effect spells, Fiery Cataclysm will move with its caster from round to round.  
+  
+Once the initial incantation is finished, a massive column of flame will strike the player, encasing him in a globe of fire while sending out a massive explosion that deals out 2d10 points of damage in a 45-foot radius.  Everyone caught in the blast will be knocked backwards and will either be struck by a minor fireball for 3d5 points of damage or a ray of flame (2d10 x 2 points of damage, target is pushed back by the flames for 1 round.)  Four seconds after the first eruption, another column of flame will pour down, creating an identical explosion.  Three seconds later, an additional explosion will erupt.  A final explosion will follow five seconds later, and everyone within range will be struck by a another minor fireball.
+  
+At the start of the third round of the spell, the sky will begin to rain meteors, causing all within range to take 2d5 points of damage for every round that they are caught in the hail.  Each round, every target will be struck by a massive meteor (3d5 points of damage in a 30 foot radius) twice and be blown backwards and possibly knocked unconscious (25% chance, save vs. spells w/ +4 bonus) for 1 round.
+  
+By the fifth round, after the last meteor falls, the ground will begin to shake violently for two rounds, throwing all creatures about for 1d10 points of damage each round and causing flaming rifts to open on the ground twice per round, crushing victims for 2d8 points of damage.  Each round, the vegetation on the ground will also attempt to grasp at any living creature and hold it rigidly for one round with a 50% success rate.
+  
+At the end of the sixth round, a final column of flame will engulf the caster once again, sending out three massive fiery shockwaves that engulf its victims for 2d10 points of damage each.
+
+
+Requires: Earthly Planeswalking.~
+
+@333=~Earthly Planeswalking:
+Having mastered the elements, it is now possible for the druid to meld into any terrestrial environment, moving through the ground or air at will, reapprearing anywhere onscreen in human form.~
+

@@ -1,0 +1,57 @@
+IF
+    OR(3)
+        NumCreatureGT("CA#SHM01",1)
+        NumCreatureGT("CA#SHM02",1)
+        NumCreatureGT("CA#SHM03",1)
+THEN
+    RESPONSE #100
+        SetInterrupt(FALSE)
+        DisplayString(Myself,14065) // Unsummoned
+        DisplayStringNoName(Player1,74090) // You cannot summon another creature of that type at this time.
+        CreateVisualEffectObject("SPGFLSH1",Myself)
+        SetInterrupt(TRUE)
+        DestroySelf()
+END
+
+IF
+	!InActiveArea(Myself)
+THEN
+	RESPONSE #100
+		NoAction()
+END
+
+IF
+	OR(5)
+		AreaType(FOREST)
+		AreaCheck("AR0043")
+		AreaCheck("AR1700")
+		AreaCheck("AR1900")
+		AreaCheck("AR6400")
+	CombatCounter(0)
+	!See(NearestEnemyOf(Myself))
+	!StateCheck(Myself,STATE_INVISIBLE)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,@69) // (Blends into natural surroundings)
+		ApplySpell(Myself,WIZARD_INVISIBILITY)
+		PlaySound("ACT_07")
+		Continue()
+END
+
+IF
+    ActionListEmpty()
+    See(NearestEnemyOf(Myself))
+    !InParty(LastSeenBy(Myself))
+THEN
+    RESPONSE #100
+        AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+  CombatCounter(0)
+  !See(Nearestenemyof(Myself))
+  !Range(Player1,10)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END

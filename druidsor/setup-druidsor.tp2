@@ -1,0 +1,1237 @@
+BACKUP   ~druidsor/backup~    // location to store files for uninstall purposes
+SUPPORT  ~http://gibberlings3.net/forums/index.php?showforum=28~ // email address displayed if install fails
+
+ALWAYS
+
+  ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN FAIL @3 END // Modmerge check
+
+  // convert strings to UTF-8 for BGEE/BG2EE
+  ACTION_DEFINE_ARRAY cdreload BEGIN setup END
+  LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR tra_path = ~druidsor/languages~ reload_array = cdreload END
+
+END
+
+VERSION ~v6~
+README ~druidsor/readme-druidSor.html~ // Offer to display the main readme
+
+ASK_EVERY_COMPONENT
+
+LANGUAGE ~English~
+         ~english~
+         ~druidsor/languages/english/setup.tra~ // English
+LANGUAGE ~Francais (Translation by zooloo of the D'Oghmatiques)~
+         ~french~
+         ~druidsor/languages/english/setup.tra~ // English
+         ~druidsor/languages/french/setup.tra~ // French
+
+
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Geomantic Sorcerer Kit Remake                    \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1 /*Start with displaying mod component Geomantic Sorcerer Remake*/
+REQUIRE_PREDICATE GAME_IS ~tob bg2ee eet bgt iwdee bgee~ @2 /* TOB/EE Check prior to compiling.*/
+
+
+
+
+// ~Fix~ to the meteor swarm projectile.
+COPY_EXISTING ~metswarm.pro~ ~override~
+  WRITE_LONG 0x104 ~0x0000000000000000~
+  WRITE_LONG 0x108 ~0x0000000000000000~
+
+// Add macros for converting divine to arcane spells
+INCLUDE ~druidsor/lib/functions.tpa~
+
+
+// Copy over stuff that doesn't need to be modified in any way
+
+COPY	~druidsor/2das~			~override~
+	~druidsor/bams~			~override~
+	~druidsor/effs~			~override~
+	~druidsor/vvcs~			~override~
+	~druidsor/itms/ca#wel3.itm~	~override/ca#wel3.itm~
+	~druidsor/SPLs/CA#DSWSA.spl~	~override/CA#DSWSA.spl~
+	~druidsor/SPLs/CA#TOWI.spl~	~override/CA#TOWI.spl~
+	~druidsor/SPLs/CA#DSM4A.spl~	~override/CA#DSM4A.spl~
+	~druidsor/SPLs/CA#DSM41.spl~	~override/CA#DSM41.spl~
+	~druidsor/SPLs/CA#DSM4B.spl~	~override/CA#DSM4B.spl~
+	~druidsor/SPLs/CA#DSM42.spl~	~override/CA#DSM42.spl~
+	~druidsor/SPLs/CA#DSM4C.spl~	~override/CA#DSM4C.spl~
+	~druidsor/SPLs/CA#DSM43.spl~	~override/CA#DSM43.spl~
+	~druidsor/SPLs/CA#DSM4D.spl~	~override/CA#DSM4D.spl~
+	~druidsor/SPLs/CA#DSM44.spl~	~override/CA#DSM44.spl~
+	~druidsor/SPLs/CA#DSM4E.spl~	~override/CA#DSM4E.spl~
+	~druidsor/SPLs/CA#DSM45.spl~	~override/CA#DSM45.spl~
+	~druidsor/SPLs/CA#DSM4F.spl~	~override/CA#DSM4F.spl~
+	~druidsor/SPLs/CA#DSM4G.spl~	~override/CA#DSM4G.spl~
+	~druidsor/SPLs/CA#DSM46.spl~	~override/CA#DSM46.spl~
+	~druidsor/SPLs/CA#DSM4H.spl~	~override/CA#DSM4H.spl~
+	~druidsor/SPLs/CA#DSM47.spl~	~override/CA#DSM47.spl~
+	~druidsor/SPLs/CA#DSM4I.spl~	~override/CA#DSM4I.spl~
+	~druidsor/SPLs/CA#DSM48.spl~	~override/CA#DSM48.spl~
+	~druidsor/SPLs/CA#DSM4J.spl~	~override/CA#DSM4J.spl~
+	~druidsor/SPLs/CA#DSM49.spl~	~override/CA#DSM49.spl~
+	~druidsor/SPLs/CA#DSM4K.spl~	~override/CA#DSM4K.spl~
+	~druidsor/SPLs/CA#DSM40.spl~	~override/CA#DSM40.spl~
+	~druidsor/SPLs/CA#CFC2.spl~	~override/CA#CFC2.spl~
+	~druidsor/SPLs/CA#DRUWA.spl~	~override/CA#DRUWA.spl~
+	~druidsor/SPLs/CA#DRUAI.spl~	~override/CA#DRUAI.spl~
+	~druidsor/SPLs/CA#DRUEA.spl~	~override/CA#DRUEA.spl~
+	~druidsor/SPLs/CA#DRUFI.spl~	~override/CA#DRUFI.spl~
+	~druidsor/SPLs/CA#DSTCH.spl~	~override/CA#DSTCH.spl~
+	~druidsor/SPLs/CA#DSTCN.spl~	~override/CA#DSTCN.spl~
+	~druidsor/SPLs/CA#EPEE2.spl~	~override/CA#EPEE2.spl~
+	~druidsor/SPLs/CA#EPES2.spl~	~override/CA#EPES2.spl~
+	~druidsor/SPLs/CA#EPES3.spl~	~override/CA#EPES3.spl~
+	~druidsor/SPLs/CA#EHEAL.spl~	~override/CA#EHEAL.spl~
+	~druidsor/SPLs/CA#EHARM.spl~	~override/CA#EHARM.spl~
+	~druidsor/SPLs/CA#EBLIN.spl~	~override/CA#EBLIN.spl~
+	~druidsor/SPLs/CA#EHOR.spl~	~override/CA#EHOR.spl~
+	~druidsor/SPLs/CA#ERAY.spl~	~override/CA#ERAY.spl~
+	~druidsor/SPLs/CA#ERM.spl~	~override/CA#ERM.spl~
+	~druidsor/SPLs/CA#ESW.spl~	~override/CA#ESW.spl~
+	~druidsor/SPLs/CA#EHM.spl~	~override/CA#EHM.spl~
+	~druidsor/SPLs/CA#EDS.spl~	~override/CA#EDS.spl~
+	~druidsor/SPLs/CA#EMCM.spl~	~override/CA#EMCM.spl~
+	~druidsor/SPLs/CA#FCS.spl~	~override/CA#FCS.spl~
+	~druidsor/SPLs/CA#FCE.spl~	~override/CA#FCE.spl~
+	~druidsor/SPLs/CA#FCF.spl~	~override/CA#FCF.spl~
+	~druidsor/SPLs/CA#FCG.spl~	~override/CA#FCG.spl~
+	~druidsor/SPLs/CA#FCJ.spl~	~override/CA#FCJ.spl~
+	~druidsor/SPLs/CA#FCH.spl~	~override/CA#FCH.spl~
+	~druidsor/SPLs/CA#FCB.spl~	~override/CA#FCB.spl~
+	~druidsor/SPLs/CA#FCM.spl~	~override/CA#FCM.spl~
+	~druidsor/SPLs/CA#FCO.spl~	~override/CA#FCO.spl~
+	~druidsor/SPLs/CA#FCP.spl~	~override/CA#FCP.spl~
+	~druidsor/SPLs/CA#FCQ.spl~	~override/CA#FCQ.spl~
+	~druidsor/SPLs/CA#FCR.spl~	~override/CA#FCR.spl~
+	~druidsor/SPLs/CA#WSM.spl~	~override/CA#WSM.spl~ // makes casting speed 1 slower
+	~druidsor/SPLs/CA#XPMOD.spl~	~override/CA#XPMOD.spl~ // 85% xp modifier
+	~druidsor/SPLs/CA#STLOS.spl~ 	~override/CA#STLOS.spl~ // stat loss modifier on kit application
+
+// Compiling Scripts
+COMPILE ~druidsor/BAFs/CA#SHM.BAF~                             // Shambler AI script
+
+
+// Adding Projectiles
+
+ADD_PROJECTILE ~druidsor/PROs/CA#DBE.pro~
+ADD_PROJECTILE ~druidsor/PROs/CA#FCEXP.pro~
+ADD_PROJECTILE ~druidsor/PROs/CA#FCFIR.pro~
+ADD_PROJECTILE ~druidsor/PROs/CA#FCMET.pro~
+ADD_PROJECTILE ~druidsor/PROs/CA#TCICE.pro~
+ADD_PROJECTILE ~druidsor/PROs/CA#UOM.pro~
+ADD_PROJECTILE ~druidsor/PROs/CA#WAVE.pro~
+ADD_PROJECTILE ~druidsor/PROs/CA#BL.pro~
+ADD_PROJECTILE ~druidsor/PROs/CA#RMBA.pro~
+
+// Add rest of items that need to be named
+COPY 	~druidsor/itms/ca#dsto.itm~	~override/ca#dsto.itm~
+		SAY NAME1 @330
+		SAY NAME2 @330
+		SAY UNIDENTIFIED_DESC @330
+		SAY DESC @330
+COPY   	~druidsor/itms/ca#shm01.itm~	~override/ca#shm01.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#SHM02.itm~	~override/CA#SHM02.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#SHM03.itm~	~override/CA#SHM03.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DSBP.itm~	~override/CA#DSBP.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DSEAR.itm~	~override/CA#DSEAR.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DSCA.itm~	~override/CA#DSCA.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DSDO.itm~	~override/CA#DSDO.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DSLE.itm~	~override/CA#DSLE.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DSMOO.itm~	~override/CA#DSMOO.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DSPAN.itm~	~override/CA#DSPAN.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DSSN.itm~	~override/CA#DSSN.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DSWO.itm~	~override/CA#DSWO.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DRUAI.itm~	~override/CA#DRUAI.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DRUEA.itm~	~override/CA#DRUEA.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DRUFI.itm~	~override/CA#DRUFI.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY   	~druidsor/itms/CA#DRUWA.itm~	~override/CA#DRUWA.itm~
+		SAY NAME1 @207
+		SAY NAME2 @207
+COPY	~druidsor/itms/CA#EOPRI.itm~	~override/CA#EOPRI.itm~
+		SAY NAME1 @330
+		SAY NAME2 @330
+		SAY UNIDENTIFIED_DESC @330
+		SAY DESC @330
+COPY	~druidsor/itms/CA#AGEO.itm~	~override/CA#AGEO.itm~
+		SAY NAME1 @110
+		SAY NAME2 @110
+		SAY UNIDENTIFIED_DESC @111
+		SAY DESC @111
+
+// Add Creatures that need to be named
+COPY	~druidsor/CREs/CA#DSTO.cre~	~override/CA#DSTO.cre~
+		SAY NAME1 @202
+		SAY NAME2 @202
+COPY	~druidsor/CREs/CA#SHM01.cre~	~override/CA#SHM01.cre~
+		SAY NAME1 @206
+		SAY NAME2 @206
+COPY	~druidsor/CREs/CA#SHM02.cre~	~override/CA#SHM02.cre~
+		SAY NAME1 @208
+		SAY NAME2 @208
+COPY	~druidsor/CREs/CA#SHM03.cre~	~override/CA#SHM03.cre~
+		SAY NAME1 @209
+		SAY NAME2 @209
+COPY	~druidsor/CREs/CA#DSCA.cre~	~override/CA#DSCA.cre~
+		SAY NAME1 @214
+		SAY NAME2 @214
+COPY	~druidsor/CREs/CA#DSDO.cre~	~override/CA#DSDO.cre~
+		SAY NAME1 @216
+		SAY NAME2 @216
+COPY	~druidsor/CREs/CA#DSLE.cre~	~override/CA#DSLE.cre~
+		SAY NAME1 @220
+		SAY NAME2 @220
+COPY	~druidsor/CREs/CA#DSMOO.cre~	~override/CA#DSMOO.cre~
+		SAY NAME1 @222
+		SAY NAME2 @222
+COPY	~druidsor/CREs/CA#DSPAN.cre~	~override/CA#DSPAN.cre~
+		SAY NAME1 @224
+		SAY NAME2 @224
+COPY	~druidsor/CREs/CA#DSSN.cre~	~override/CA#DSSN.cre~
+		SAY NAME1 @227
+		SAY NAME2 @227
+COPY	~druidsor/CREs/CA#DSWO.cre~	~override/CA#DSWO.cre~
+		SAY NAME1 @230
+		SAY NAME2 @230
+COPY	~druidsor/CREs/CA#DSSW.cre~	~override/CA#DSSW.cre~
+		SAY NAME1 @230
+		SAY NAME2 @230
+COPY	~druidsor/CREs/CA#DSEE.cre~	~override/CA#DSEE.cre~
+		SAY NAME1 @290
+		SAY NAME2 @290
+COPY	~druidsor/CREs/CA#DRUWA.cre~	~override/CA#DRUWA.cre~
+		SAY NAME1 @291
+		SAY NAME2 @291
+COPY	~druidsor/CREs/CA#DRUAI.cre~	~override/CA#DRUAI.cre~
+		SAY NAME1 @294
+		SAY NAME2 @294
+COPY	~druidsor/CREs/CA#DSFE.cre~	~override/CA#DSFE.cre~
+		SAY NAME1 @296
+		SAY NAME2 @296
+COPY	~druidsor/CREs/CA#EOP.cre~	~override/CA#EOP.cre~
+		SAY NAME1 @316
+		SAY NAME2 @316
+COPY	~druidsor/CREs/CA#AGEO.cre~	~override/CA#AGEO.cre~ // invisible invulnerable creature to cast spell to turn player1 into a geomantic sorcerer for ToB and Tutu (TEMPORARY)
+		WRITE_ASCII 0x248 ~ca#ageo~ #8
+
+
+// Add remaining newly made spells
+
+COPY	~druidsor/SPLs/CA#DSWS.spl~	~override/CA#DSWS.spl~
+		SAY NAME1 @200
+		SAY NAME2 @200
+		SAY UNIDENTIFIED_DESC @201
+		WRITE_SHORT	0x98 ~%CA#WAVE%~
+COPY	~druidsor/SPLs/CA#DSTO.spl~	~override/CA#DSTO.spl~
+		SAY NAME1 @202
+		SAY NAME2 @202
+		SAY UNIDENTIFIED_DESC @203
+COPY	~druidsor/SPLs/CA#DSMO.spl~	~override/CA#DSMO.spl~
+		SAY NAME1 @204
+		SAY NAME2 @204
+		SAY UNIDENTIFIED_DESC @205
+COPY	~druidsor/SPLs/CA#DSTO.spl~	~override/CA#DSTO.spl~
+		SAY NAME1 @202
+		SAY NAME2 @202
+		SAY UNIDENTIFIED_DESC @203
+COPY	~druidsor/SPLs/CA#DSSC.spl~	~override/CA#DSSC.spl~
+		SAY NAME1 @210
+		SAY NAME2 @210
+COPY	~druidsor/SPLs/CA#DSBE.spl~	~override/CA#DSBE.spl~
+		SAY NAME1 @211
+		SAY NAME2 @211
+COPY	~druidsor/SPLs/CA#DSPM5.spl~	~override/CA#DSPM5.spl~
+		SAY NAME1 @212
+		SAY NAME2 @212
+COPY	~druidsor/SPLs/CA#DSCA.spl~	~override/CA#DSCA.spl~
+		SAY NAME1 @213
+		SAY NAME2 @213
+COPY	~druidsor/SPLs/CA#DSDO.spl~	~override/CA#DSDO.spl~
+		SAY NAME1 @215
+		SAY NAME2 @215
+COPY	~druidsor/SPLs/CA#DSLE.spl~	~override/CA#DSLE.spl~
+		SAY NAME1 @219
+		SAY NAME2 @219
+COPY	~druidsor/SPLs/CA#DSMOO.spl~	~override/CA#DSMOO.spl~
+		SAY NAME1 @221
+		SAY NAME2 @221
+COPY	~druidsor/SPLs/CA#DSPAN.spl~	~override/CA#DSPAN.spl~
+		SAY NAME1 @223
+		SAY NAME2 @223
+COPY	~druidsor/SPLs/CA#DSRAT.spl~	~override/CA#DSRAT.spl~
+		SAY NAME1 @225
+		SAY NAME2 @225
+COPY	~druidsor/SPLs/CA#DSSN.spl~	~override/CA#DSSN.spl~
+		SAY NAME1 @226
+		SAY NAME2 @226
+COPY	~druidsor/SPLs/CA#SFEAR.spl~	~override/CA#SFEAR.spl~
+		SAY NAME1 @228
+		SAY NAME2 @228
+COPY	~druidsor/SPLs/CA#DSWO.spl~	~override/CA#DSWO.spl~
+		SAY NAME1 @229
+		SAY NAME2 @229
+COPY	~druidsor/SPLs/CA#DSPM.spl~	~override/CA#DSPM.spl~
+		SAY NAME1 @212
+		SAY NAME2 @212
+COPY	~druidsor/SPLs/CA#DSPM2.spl~	~override/CA#DSPM2.spl~
+		SAY NAME1 @212
+		SAY NAME2 @212
+COPY	~druidsor/SPLs/CA#DSPM4.spl~	~override/CA#DSPM4.spl~
+		SAY NAME1 @212
+		SAY NAME2 @212
+COPY	~druidsor/SPLs/CA#DSPM3.spl~	~override/CA#DSPM3.spl~
+		SAY NAME1 @212
+		SAY NAME2 @212
+COPY	~druidsor/SPLs/CA#DSTR.spl~	~override/CA#DSTR.spl~
+		SAY NAME1 @231
+		SAY NAME2 @231
+		SAY UNIDENTIFIED_DESC @232
+COPY	~druidsor/SPLs/CA#DSFT.spl~	~override/CA#DSFT.spl~
+		SAY NAME1 @233
+		SAY NAME2 @233
+COPY	~druidsor/SPLs/CA#DSSP.spl~	~override/CA#DSSP.spl~
+		SAY NAME1 @234
+		SAY NAME2 @234
+COPY	~druidsor/SPLs/CA#DSSW.spl~	~override/CA#DSSW.spl~
+		SAY NAME1 @235
+		SAY NAME2 @235
+COPY	~druidsor/SPLs/CA#DSSA.spl~	~override/CA#DSSA.spl~
+		SAY NAME1 @236
+		SAY NAME2 @236
+COPY	~druidsor/SPLs/CA#DSPA.spl~	~override/CA#DSPA.spl~
+		SAY NAME1 @236
+		SAY NAME2 @236
+COPY	~druidsor/SPLs/CA#CLAR.spl~	~override/CA#CLAR.spl~
+		SAY NAME1 @250
+		SAY NAME2 @250
+		SAY UNIDENTIFIED_DESC @251
+COPY	~druidsor/SPLs/CA#VLUC.spl~	~override/CA#VLUC.spl~
+		SAY NAME1 @252
+		SAY NAME2 @252
+		SAY UNIDENTIFIED_DESC @253
+COPY	~druidsor/SPLs/CA#SCM.spl~	~override/CA#SCM.spl~
+		SAY NAME1 @254
+		SAY NAME2 @254
+		SAY UNIDENTIFIED_DESC @255
+COPY	~druidsor/SPLs/CA#RM.spl~	~override/CA#RM.spl~
+		SAY NAME1 @256
+		SAY NAME2 @256
+		WRITE_SHORT	0x98 ~%CA#RMBA%~
+COPY	~druidsor/SPLs/CA#BSM.spl~	~override/CA#BSM.spl~
+		SAY NAME1 @257
+		SAY NAME2 @257
+		SAY UNIDENTIFIED_DESC @258
+COPY	~druidsor/SPLs/CA#BSK.spl~	~override/CA#BSK.spl~
+		SAY NAME1 @259
+		SAY NAME2 @259
+		SAY UNIDENTIFIED_DESC @260
+COPY	~druidsor/SPLs/CA#SPE.spl~	~override/CA#SPE.spl~
+		SAY NAME1 @261
+		SAY NAME2 @261
+		SAY UNIDENTIFIED_DESC @262
+COPY	~druidsor/SPLs/CA#DSM4.spl~	~override/CA#DSM4.spl~
+		SAY NAME1 @263
+		SAY NAME2 @263
+		SAY UNIDENTIFIED_DESC @264
+COPY	~druidsor/SPLs/CA#DSCW.spl~	~override/CA#DSCW.spl~
+		SAY NAME1 @265
+		SAY NAME2 @265
+		SAY UNIDENTIFIED_DESC @266
+COPY	~druidsor/SPLs/CA#DSIGA.spl~	~override/CA#DSIGA.spl~
+		SAY NAME1 @267
+		SAY NAME2 @267
+		SAY UNIDENTIFIED_DESC @268
+COPY	~druidsor/SPLs/CA#DSOCR.spl~	~override/CA#DSOCR.spl~
+		SAY NAME1 @269
+		SAY NAME2 @269
+		SAY UNIDENTIFIED_DESC @270
+COPY	~druidsor/SPLs/CA#DSCFC.spl~	~override/CA#DSCFC.spl~
+		SAY NAME1 @271
+		SAY NAME2 @271
+		SAY UNIDENTIFIED_DESC @272
+COPY	~druidsor/SPLs/CA#DSMGI.spl~	~override/CA#DSMGI.spl~
+		SAY NAME1 @273
+		SAY NAME2 @273
+		SAY UNIDENTIFIED_DESC @274
+COPY	~druidsor/SPLs/CA#DSDBE.spl~	~override/CA#DSDBE.spl~
+		SAY NAME1 @275
+		SAY NAME2 @275
+		SAY UNIDENTIFIED_DESC @276
+		WRITE_SHORT	0x98 ~%CA#DBE%~
+COPY	~druidsor/SPLs/CA#DSIE.spl~	~override/CA#DSIE.spl~
+		SAY NAME1 @277
+		SAY NAME2 @277
+		SAY UNIDENTIFIED_DESC @278
+COPY	~druidsor/SPLs/CA#MIL1S.spl~	~override/CA#MIL1S.spl~
+		SAY NAME1 @279
+		SAY NAME2 @279
+		SAY UNIDENTIFIED_DESC @280
+COPY	~druidsor/SPLs/CA#MR33.spl~	~override/CA#MR33.spl~
+		SAY NAME1 @281
+		SAY NAME2 @281
+		SAY UNIDENTIFIED_DESC @282
+COPY	~druidsor/SPLs/CA#BLON.spl~	~override/CA#BLON.spl~
+		SAY NAME1 @283
+		SAY NAME2 @283
+		SAY UNIDENTIFIED_DESC @284
+		SAY 0x1be @285
+COPY	~druidsor/SPLs/CA#DSDI.spl~	~override/CA#DSDI.spl~
+		SAY NAME1 @286
+		SAY NAME2 @286
+		SAY UNIDENTIFIED_DESC @287
+COPY	~druidsor/SPLs/CA#ELTR.spl~	~override/CA#ELTR.spl~
+		SAY NAME1 @288
+		SAY NAME2 @288
+		SAY UNIDENTIFIED_DESC @289
+COPY	~druidsor/SPLs/CA#DRWAT.spl~	~override/CA#DRWAT.spl~
+		SAY NAME1 @290
+		SAY NAME2 @290
+COPY	~druidsor/SPLs/CA#DSPM6.spl~	~override/CA#DSPM6.spl~
+		SAY NAME1 @212
+		SAY NAME2 @212
+COPY	~druidsor/SPLs/CA#DREAR.spl~	~override/CA#DREAR.spl~
+		SAY NAME1 @293
+		SAY NAME2 @293
+COPY	~druidsor/SPLs/CA#DRAIR.spl~	~override/CA#DRAIR.spl~
+		SAY NAME1 @294
+		SAY NAME2 @294
+COPY	~druidsor/SPLs/CA#DRFIR.spl~	~override/CA#DRFIR.spl~
+		SAY NAME1 @296
+		SAY NAME2 @296
+COPY	~druidsor/SPLs/CA#EP.spl~	~override/CA#EP.spl~
+		SAY NAME1 @298
+		SAY NAME2 @298
+		SAY UNIDENTIFIED_DESC @299
+COPY	~druidsor/SPLs/CA#EP2.spl~	~override/CA#EP2.spl~
+		SAY NAME1 @298
+		SAY NAME2 @298
+		SAY UNIDENTIFIED_DESC @333
+COPY	~druidsor/SPLs/CA#DSTC.spl~	~override/CA#DSTC.spl~
+		SAY NAME1 @300
+		SAY NAME2 @300
+		SAY UNIDENTIFIED_DESC @301
+COPY	~druidsor/SPLs/CA#DSTCG.spl~	~override/CA#DSTCG.spl~
+		SAY NAME1 @302
+		SAY NAME2 @302
+COPY	~druidsor/SPLs/CA#DSTCA.spl~	~override/CA#DSTCA.spl~
+		SAY NAME1 @300
+		SAY NAME2 @300
+		WRITE_SHORT   0x98 ~%CA#TCICE%~
+COPY	~druidsor/SPLs/CA#DSTCK.spl~	~override/CA#DSTCK.spl~
+		SAY NAME1 @303
+		SAY NAME2 @303
+COPY	~druidsor/SPLs/CA#DSTCB.spl~	~override/CA#DSTCB.spl~
+		SAY NAME1 @304
+		SAY NAME2 @304
+COPY	~druidsor/SPLs/CA#DSTCC.spl~	~override/CA#DSTCC.spl~
+		SAY NAME1 @305
+		SAY NAME2 @305
+COPY	~druidsor/SPLs/CA#DSTCD.spl~	~override/CA#DSTCD.spl~
+		SAY NAME1 @306
+		SAY NAME2 @306
+COPY	~druidsor/SPLs/CA#DSTCE.spl~	~override/CA#DSTCE.spl~
+		SAY NAME1 @307
+		SAY NAME2 @307
+		WRITE_SHORT   0x98 ~%CA#WAVE%~
+COPY	~druidsor/SPLs/CA#DSTCF.spl~	~override/CA#DSTCF.spl~
+		SAY NAME1 @308
+		SAY NAME2 @308
+COPY	~druidsor/SPLs/CA#DSTCI.spl~	~override/CA#DSTCI.spl~
+		SAY NAME1 @309
+		SAY NAME2 @309
+COPY	~druidsor/SPLs/CA#DSTCJ.spl~	~override/CA#DSTCJ.spl~
+		SAY NAME1 @310
+		SAY NAME2 @310
+COPY	~druidsor/SPLs/CA#DSTCL.spl~	~override/CA#DSTCL.spl~
+		SAY NAME1 @310
+		SAY NAME2 @310
+COPY	~druidsor/SPLs/CA#DSTCM.spl~	~override/CA#DSTCM.spl~
+		SAY NAME1 @305
+		SAY NAME2 @305
+COPY	~druidsor/SPLs/CA#UOM.spl~	~override/CA#UOM.spl~
+		SAY NAME1 @311
+		SAY NAME2 @311
+		SAY UNIDENTIFIED_DESC @312
+COPY	~druidsor/SPLs/CA#UOMA.spl~	~override/CA#UOMA.spl~
+		SAY NAME1 @311
+		SAY NAME2 @311
+		WRITE_SHORT   0x98  ~%CA#UOM%~
+COPY	~druidsor/SPLs/CA#UOMB.spl~	~override/CA#UOMB.spl~
+		SAY 0xfe @313
+COPY	~druidsor/SPLs/CA#AF.spl~	~override/CA#AF.spl~
+		SAY NAME1 @314
+		SAY NAME2 @314
+		SAY UNIDENTIFIED_DESC @315
+COPY	~druidsor/SPLs/CA#EOP.spl~	~override/CA#EOP.spl~
+		SAY NAME1 @316
+		SAY NAME2 @316
+		SAY UNIDENTIFIED_DESC @317
+COPY	~druidsor/SPLs/CA#EPEE.spl~	~override/CA#EPEE.spl~
+		SAY NAME1 @319
+		SAY NAME2 @319
+COPY	~druidsor/SPLs/CA#EPEP.spl~	~override/CA#EPEP.spl~
+		SAY NAME1 @320
+		SAY NAME2 @320
+COPY	~druidsor/SPLs/CA#EPEP2.spl~	~override/CA#EPEP2.spl~
+		SAY NAME1 @321
+		SAY NAME2 @321
+COPY	~druidsor/SPLs/CA#EPEP3.spl~	~override/CA#EPEP3.spl~
+		SAY NAME1 @322
+		SAY NAME2 @322
+		SAY 0x15e @323
+		SAY 0x18e @324
+		SAY 0x1be @325
+		SAY 0x1ee @326
+		SAY 0x21e @327
+COPY	~druidsor/SPLs/CA#EPES.spl~	~override/CA#EPES.spl~
+		SAY NAME1 @328
+		SAY NAME2 @328
+COPY	~druidsor/SPLs/CA#EPBE.spl~	~override/CA#EPBE.spl~
+		SAY NAME1 @329
+		SAY NAME2 @329
+		WRITE_SHORT   0x98   ~%CA#BL%~
+COPY	~druidsor/SPLs/CA#FC.spl~	~override/CA#FC.spl~
+		SAY NAME1 @331
+		SAY NAME2 @331
+		SAY UNIDENTIFIED_DESC @332
+		WRITE_SHORT   0x98 ~%CA#FCEXP%~
+COPY	~druidsor/SPLs/CA#FCC.spl~	~override/CA#FCC.spl~
+		WRITE_SHORT   0x98 ~%CA#FCEXP%~
+COPY	~druidsor/SPLs/CA#FCD.spl~	~override/CA#FCD.spl~
+		WRITE_SHORT   0x98 ~%CA#FCEXP%~
+COPY	~druidsor/SPLs/CA#FCI.spl~	~override/CA#FCI.spl~
+		WRITE_SHORT   0x98 ~%CA#FCFIR%~
+COPY	~druidsor/SPLs/CA#FCL.spl~	~override/CA#FCL.spl~
+		WRITE_SHORT   0x98 ~%CA#FCMET%~
+COPY	~druidsor/SPLs/CA#FCN.spl~	~override/CA#FCN.spl~
+		WRITE_SHORT   0x98 ~%CA#DBE%~
+COPY	~druidsor/SPLs/CA#FCK.spl~	~override/CA#FCK.spl~
+		WRITE_SHORT   0x98 ~%CA#FCEXP%~
+
+// Clone and modify existing priest spells for this kit as arcane spells
+
+// level 1 wizard spells
+
+LAF divine_to_arcane INT_VAR spell_level = 1 STR_VAR source = sppr103 destination = ~CA#DS103~ END //cure light wounds
+LAF divine_to_arcane INT_VAR spell_level = 1 STR_VAR source = sppr104 destination = ~CA#DS104~ END //detect evil
+LAF divine_to_arcane INT_VAR spell_level = 1 STR_VAR source = sppr105 destination = ~CA#DS105~ END //entangle
+LAF divine_to_arcane INT_VAR spell_level = 1 STR_VAR source = sppr109 destination = ~CA#DS109~ END //sanctuary
+LAF divine_to_arcane INT_VAR spell_level = 1 STR_VAR source = sppr110 destination = ~CA#DS110~ END //shillelagh
+
+LAF divine_to_arcane INT_VAR spell_level = 2 STR_VAR source = sppr202 destination = ~CA#DS202~ END //barkskin
+LAF divine_to_arcane INT_VAR spell_level = 2 STR_VAR source = sppr204 destination = ~CA#DS204~ END //charm person or mammal
+LAF divine_to_arcane INT_VAR spell_level = 2 STR_VAR source = sppr206 destination = ~CA#DS206~ END //flame blade
+LAF divine_to_arcane INT_VAR spell_level = 2 STR_VAR source = sppr207 destination = ~CA#DS207~ END //goodberries
+LAF divine_to_arcane INT_VAR spell_level = 2 STR_VAR source = sppr210 destination = ~CA#DS210~ END //resist fire/cold
+LAF divine_to_arcane INT_VAR spell_level = 2 STR_VAR source = sppr211 destination = ~CA#DS211~ END //silence 15' radius
+LAF divine_to_arcane INT_VAR spell_level = 2 STR_VAR source = sppr212 destination = ~CA#DS212~ END //slow poison
+
+LAF divine_to_arcane INT_VAR spell_level = 3 STR_VAR source = sppr302 destination = ~CA#DS302~ END //call lightning
+LAF divine_to_arcane INT_VAR spell_level = 3 STR_VAR source = sppr305 destination = ~CA#DS305~ END //hold animal
+LAF divine_to_arcane INT_VAR spell_level = 3 STR_VAR source = sppr306 destination = ~CA#DS306~ END //protection from fire
+LAF divine_to_arcane INT_VAR spell_level = 3 STR_VAR source = sppr308 destination = ~CA#DS308~ END //Remove paralysis
+LAF divine_to_arcane INT_VAR spell_level = 3 STR_VAR source = sppr315 destination = ~CA#DS315~ END //cure medium wounds
+LAF divine_to_arcane INT_VAR spell_level = 3 STR_VAR source = sppr317 destination = ~CA#DS317~ END //cure disease
+LAF divine_to_arcane INT_VAR spell_level = 3 STR_VAR source = sppr318 destination = ~CA#DS318~ END //zone of sweet air
+LAF divine_to_arcane INT_VAR spell_level = 3 STR_VAR source = sppr319 destination = ~CA#DS319~ END //summon insects
+
+LAF divine_to_arcane INT_VAR spell_level = 4 STR_VAR source = sppr402 destination = ~CA#DS402~ END //animal summoning I
+LAF divine_to_arcane INT_VAR spell_level = 4 STR_VAR source = sppr403 destination = ~CA#DS403~ END //free action
+LAF divine_to_arcane INT_VAR spell_level = 4 STR_VAR source = sppr404 destination = ~CA#DS404~ END //neutralize poison
+LAF divine_to_arcane INT_VAR spell_level = 4 STR_VAR source = sppr406 destination = ~CA#DS406~ END //defensive harmony
+LAF divine_to_arcane INT_VAR spell_level = 4 STR_VAR source = sppr407 destination = ~CA#DS407~ END //protection from lightning
+LAF divine_to_arcane INT_VAR spell_level = 4 keep_priest = 1 STR_VAR source = sppr410 destination = ~CA#DS410~ END //call woodland beings (special)
+LAF divine_to_arcane INT_VAR spell_level = 4 STR_VAR source = sppr411 destination = ~CA#DS411~ END //poison
+
+LAF divine_to_arcane INT_VAR spell_level = 5 STR_VAR source = sppr401 destination = ~CA#DS401~ END //cure serious wounds
+LAF divine_to_arcane INT_VAR spell_level = 5 STR_VAR source = sppr501 destination = ~CA#DS501~ END //animal summoning II
+LAF divine_to_arcane INT_VAR spell_level = 5 STR_VAR source = sppr506 destination = ~CA#DS506~ END //iron skins
+LAF divine_to_arcane INT_VAR spell_level = 5 STR_VAR source = sppr508 destination = ~CA#DS508~ END //chaotic commands
+LAF divine_to_arcane INT_VAR spell_level = 5 STR_VAR source = sppr516 destination = ~CA#DS516~ END //pixie dust
+LAF divine_to_arcane INT_VAR spell_level = 5 STR_VAR source = sppr517 destination = ~CA#DS517~ END //insect plague
+
+LAF divine_to_arcane INT_VAR spell_level = 6 STR_VAR source = sppr502 destination = ~CA#DS502~ END //cure critical wounds
+LAF divine_to_arcane INT_VAR spell_level = 6 STR_VAR source = sppr512 destination = ~CA#DS512~ END //greater command
+LAF divine_to_arcane INT_VAR spell_level = 6 STR_VAR source = sppr602 destination = ~CA#DS602~ END //animal summoning III
+LAF divine_to_arcane INT_VAR spell_level = 6 STR_VAR source = sppr604 destination = ~CA#DS604~ END //conjure animals
+LAF divine_to_arcane INT_VAR spell_level = 6 STR_VAR source = sppr605 destination = ~CA#DS605~ END //conjure fire elemental
+LAF divine_to_arcane INT_VAR spell_level = 6 STR_VAR source = sppr606 destination = ~CA#DS606~ END //fire seeds
+LAF divine_to_arcane INT_VAR spell_level = 6 STR_VAR source = sppr610 destination = ~CA#DS610~ END //dolorous decay
+
+LAF divine_to_arcane INT_VAR spell_level = 7 STR_VAR source = sppr607 destination = ~CA#DS607~ END //heal
+LAF divine_to_arcane INT_VAR spell_level = 7 STR_VAR source = sppr613 destination = ~CA#DS613~ END //physical mirror
+LAF divine_to_arcane INT_VAR spell_level = 7 STR_VAR source = sppr702 destination = ~CA#DS702~ END //conjure earth elemental
+LAF divine_to_arcane INT_VAR spell_level = 7 STR_VAR source = sppr707 destination = ~CA#DS707~ END //sunray
+LAF divine_to_arcane INT_VAR spell_level = 7 STR_VAR source = sppr717 destination = ~CA#DS717~ END //creeping doom
+LAF divine_to_arcane INT_VAR spell_level = 7 STR_VAR source = sppr720 destination = ~CA#DS720~ END //earthquake
+
+LAF divine_to_arcane INT_VAR spell_level = 8 STR_VAR source = sppr701 destination = ~CA#DS701~ END //shield of the archons
+LAF divine_to_arcane INT_VAR spell_level = 8 STR_VAR source = sppr704 destination = ~CA#DS704~ END //nature's beauty
+LAF divine_to_arcane INT_VAR spell_level = 8 STR_VAR source = sppr705 destination = ~CA#DS705~ END //fire storm
+LAF divine_to_arcane INT_VAR spell_level = 8 STR_VAR source = sppr711 destination = ~CA#DS711~ END //regeneration
+
+LAF divine_to_arcane INT_VAR spell_level = 9 STR_VAR source = sppr504 destination = ~CA#DS504~ END //raise dead
+
+ACTION_IF GAME_IS ~tob bgt tutu tutu_totsc~ THEN BEGIN // non-EE game
+  
+  // Internal Name of the Kit
+  ADD_KIT ~CA#DSORC~
+  
+   // appended to CLASWEAP.2da
+   ~CA#DSORC               1           0           1           1           0           0           0           0~
+   // appended column-wise to WEAPPROF.2da
+   ~CA#DSORC 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+   // appended to ABCLASRQ.2da
+   ~CA#DSORC               0       0       0       0       13      9~
+   // appended to ABCLSMOD.2da
+   ~CA#DSORC               -2      -2      -2      0       0       0~
+   // appended to ABDCDSRQ.2da
+   ~CA#DSORC               0       0       0       0       17      17~
+   // appended to ABDCSCRQ.2da
+   ~CA#DSORC               0       0       0       0       17      17~
+   // appended to ALIGNMNT.2da
+   ~CA#DSORC               0       1       0       1       1       1       0       1       0~
+   // appended to DUALCLAS.2da
+   ~CA#DSORC               0       0       0       0       0       0~
+  
+   // path to your CLAB-style 2da file
+   ~druidsor/2DAs/CA#DSOR.2da~
+   
+   // PC races and classes allowed to use this kit, from KITTABLE.2da
+   ~~
+  
+   // usability flags, added to the end of the KITLIST.2da entry
+   ~0x00004000     19~
+  
+   // HLA table to use; see LUABBR.2da
+   ~GE0~
+  
+   // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+   ~* * * BAG29 RING06 RING40 * BOOT01 AMUL21 BRAC15 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN4,2 POTN14,5 SLNG05 DAGG05,40 STAF20~
+   
+   /* Lower, mixed, and help kit names and descriptions, added to KITLIST.2da */
+   SAY @100
+   SAY @100
+   SAY @102
+  
+  // Compile another script
+  COMPILE ~druidsor/BAFs/CA#AGEO.BAF~		     	       // Script for invisible creature to apply kit for Tutu and ToB games (TEMPORARY)
+  
+  // Dialogue changes
+  
+  COMPILE ~druidsor/Ds/AATAQAH.d~
+  USING   ~druidsor/languages/English/AATAQAH.tra~
+          ~druidsor/languages/%s/AATAQAH.tra~
+        
+END ELSE BEGIN 
+
+  INCLUDE ~druidsor/lib/fl#add_kit_ee.tpa~		
+  
+  // Internal Name of the Kit
+  ADD_KIT ~CA#DSORC~ // same, except for K_S_foo entries and fl#add_kit_ee
+  
+   // appended to CLASWEAP.2da
+   ~CA#DSORC               1           0           1           1           0           0           0           0~
+   // appended column-wise to WEAPPROF.2da
+   ~CA#DSORC 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+   // appended to ABCLASRQ.2da
+   ~CA#DSORC               0       0       0       0       13      9~
+   // appended to ABCLSMOD.2da
+   ~CA#DSORC               -2      -2      -2      0       0       0~
+   // appended to ABDCDSRQ.2da
+   ~CA#DSORC               0       0       0       0       17      17~
+   // appended to ABDCSCRQ.2da
+   ~CA#DSORC               0       0       0       0       17      17~
+   // appended to ALIGNMNT.2da
+   ~CA#DSORC               0       1       0       1       1       1       0       1       0~
+   // appended to DUALCLAS.2da
+   ~CA#DSORC               0       0       0       0       0       0~
+  
+   // path to your CLAB-style 2da file
+   ~druidsor/2DAs/CA#DSOR.2da~
+   
+   // PC races and classes allowed to use this kit, from KITTABLE.2da
+   ~K_S_H    K_S_D   K_S_G   K_S_E   K_S_HE   K_S_HL   K_S_HO~
+  
+   // usability flags, added to the end of the KITLIST.2da entry
+   ~0x00004000     19~
+  
+   // HLA table to use; see LUABBR.2da
+   ~GE0~
+  
+   // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+   ~* * * BAG29 RING06 RING40 * BOOT01 AMUL21 BRAC15 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN4,2 POTN14,5 SLNG05 DAGG05,40 STAF20~
+   
+   /* Lower, mixed, and help kit names and descriptions, added to KITLIST.2da */
+   SAY @100
+   SAY @100
+   SAY @102
+  LAF fl#add_kit_ee STR_VAR kit_name = ~CA#DSORC~ END
+
+END
+  
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Portraits for Druidic Shapeshifting              \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @20 /*Portraits for Druidic Shapeshifting*/    //1
+REQUIRE_COMPONENT ~setup-druidsor.tp2~ ~0~ @12 //Need main kit installed before you can install this component.
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+// copy the shapeshfiting spells with portrait changing effects
+COPY	~druidsor/portraits/spells/CA#DSBE.spl~	~override/CA#DSBE.spl~
+		SAY NAME1 @211
+		SAY NAME2 @211
+COPY	~druidsor/portraits/spells/CA#DSCA.spl~	~override/CA#DSCA.spl~
+		SAY NAME1 @213
+		SAY NAME2 @213
+COPY	~druidsor/portraits/spells/CA#DSDO.spl~	~override/CA#DSDO.spl~
+		SAY NAME1 @215
+		SAY NAME2 @215
+COPY	~druidsor/portraits/spells/CA#DSLE.spl~	~override/CA#DSLE.spl~
+		SAY NAME1 @219
+		SAY NAME2 @219
+COPY	~druidsor/portraits/spells/CA#DSMOO.spl~ ~override/CA#DSMOO.spl~
+		SAY NAME1 @221
+		SAY NAME2 @221
+COPY	~druidsor/portraits/spells/CA#DSPAN.spl~ ~override/CA#DSPAN.spl~
+		SAY NAME1 @223
+		SAY NAME2 @223
+COPY	~druidsor/portraits/spells/CA#DSRAT.spl~ ~override/CA#DSRAT.spl~
+		SAY NAME1 @225
+		SAY NAME2 @225
+COPY	~druidsor/portraits/spells/CA#DSSN.spl~	~override/CA#DSSN.spl~
+		SAY NAME1 @226
+		SAY NAME2 @226
+COPY	~druidsor/portraits/spells/CA#DSWO.spl~	~override/CA#DSWO.spl~
+		SAY NAME1 @229
+		SAY NAME2 @229
+COPY	~druidsor/portraits/spells/CA#DSPM.spl~	~override/CA#DSPM.spl~
+		SAY NAME1 @212
+		SAY NAME2 @212
+COPY	~druidsor/portraits/spells/CA#ELTR.spl~	~override/CA#ELTR.spl~
+		SAY NAME1 @288
+		SAY NAME2 @288
+		SAY UNIDENTIFIED_DESC @289
+COPY    ~druidsor/portraits/spells/CA#STLOS.spl~ ~override/CA#STLOS.spl~ // stat loss modifier on kit application this version sets the portrait to the geosorl and geosorm
+
+
+
+BEGIN @30 //Male PCs     2
+SUBCOMPONENT @20 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~1~) @12 /*Portraits for Druidic Shapeshifting*/
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+// this file does nothing, it just allows other mods to detect this component
+COPY_EXISTING ~sw1h01.itm~ ~override/malepc.g3~
+
+BEGIN @31 // Female PCs      3
+SUBCOMPONENT @20
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~1~) @12 /*Portraits for Druidic Shapeshifting*/
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+// this file does nothing, it just allows other mods to detect this component
+COPY_EXISTING ~sw1h01.itm~ ~override/femalepc.g3~
+
+/// Options for Male Humanoid Portraits
+
+BEGIN @60 /*mCast2 (Lightning Caster)*/       //4
+SUBCOMPONENT @40 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Humanoid Portrait*/ // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/humanoid/mcast2m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mcast2m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mcast2s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mcast2s.bmp~      ~portraits/geosors.bmp~
+
+
+BEGIN @61 /*mCast5 (Blond Hooded Caster)*/      //5
+SUBCOMPONENT @40 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Humanoid Portrait*/ // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/humanoid/mcast5m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mcast5m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mcast5s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mcast5s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @62 /*mDruid2 (Druid with face paint) - By Amaurea*/    //6
+SUBCOMPONENT @40 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Humanoid Portrait*/ // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/humanoid/mdruid2m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mdruid2m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mdruid2s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mdruid2s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @63 /*mDruid (Druid in Vegetation)*/        //7
+SUBCOMPONENT @40 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Humanoid Portrait*/ // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/humanoid/mdruidm.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mdruidm.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mdruids.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mdruids.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @64 /*mElf1 (Slightly dark skinned elf)*/   //8
+SUBCOMPONENT @40 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Humanoid Portrait*/ // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/humanoid/melf1m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/melf1m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/melf1s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/male/humanoid/melf1s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @65 /*mElf2 (Elf caster type, open collar) - By Amaurea*/    //9
+SUBCOMPONENT @40 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Humanoid Portrait*/ // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/humanoid/melf2m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/melf2m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/melf2s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/male/humanoid/melf2s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @66 /*mElf3 (Elf caster type, closeup) - By Amaurea*/    //10
+SUBCOMPONENT @40 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Humanoid Portrait*/ // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/humanoid/melf3m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/melf3m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/melf3s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/male/humanoid/melf3s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @67 /*mGeo01 (Caster with sigils and runes) - By Amedyr*/    //11
+SUBCOMPONENT @40 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Humanoid Portrait*/ // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/humanoid/mgeo01m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mgeo01m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mgeo01s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/male/humanoid/mgeo01s.bmp~      ~portraits/geosors.bmp~
+
+//BEGIN @68 /*mHum7 (Red headed human) - By Amaurea*/    //12
+//SUBCOMPONENT @40 
+//REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Humanoid Portrait*/ // need male PC choice in earlier install order
+//REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+//COPY    ~druidsor/portraits/male/humanoid/mhum7m.bmp~      ~override/geosorl.bmp~
+//COPY    ~druidsor/portraits/male/humanoid/mhum7m.bmp~      ~portraits/geosorl.bmp~
+//COPY    ~druidsor/portraits/male/humanoid/mhum7s.bmp~      ~override/geosors.bmp~
+//COPY    ~druidsor/portraits/male/humanoid/mhum7s.bmp~      ~portraits/geosors.bmp~
+
+
+//////////////////// Options for Female Humanoid Portraits
+
+BEGIN @21 /*fCast02 (Green Hooded, possibly elven/half-elven)*/    //13
+SUBCOMPONENT @51 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13 /*Female Humanoid Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/humanoid/fcast02m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast02m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast02s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast02s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @22 /*fCast15 (Tatooed caster)*/                 //14
+SUBCOMPONENT @51 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13 /*Female Humanoid Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/humanoid/fcast15m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast15m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast15s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast15s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @23 /*fCast16 (With metal ornamentation)*/      //15
+SUBCOMPONENT @51  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13 /*Female Humanoid Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/humanoid/fcast16m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast16m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast16s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast16s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @24 /*fCast18 (Brown Hair human/half-elf)*/      //16
+SUBCOMPONENT @51  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13/*Female Humanoid Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/humanoid/fcast18m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast18m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast18s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fcast18s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @25 /*fDruid7 (Druid with headdress)*/          //17
+SUBCOMPONENT @51  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13 /*Female Humanoid Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/humanoid/fdruid7m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fdruid7m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fdruid7s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fdruid7s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @26 /*fDruid9 (Red headed druid type in brown robe)*/   //18
+SUBCOMPONENT @51  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13 /*Female Humanoid Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/humanoid/fdruid9m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fdruid9m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fdruid9s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fdruid9s.bmp~      ~portraits/geosors.bmp~
+
+//BEGIN @27 /*fGeo01 (DESCRIPTION) - By Amedyr*/
+//SUBCOMPONENT @51  
+//REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13 /*Female Humanoid Portrait*/ // need female PC choice in earlier install order
+//REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+/*
+COPY    ~druidsor/portraits/female/humanoid/fgeo01m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fgeo01m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fgeo01s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fgeo01s.bmp~      ~portraits/geosors.bmp~*/
+
+BEGIN @28 /*fHaEl1 (Elf/Half-Elf caster type) - By Amaurea*/    //19
+SUBCOMPONENT @51  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13 /*Female Humanoid Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/humanoid/fhael1m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fhael1m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fhael1s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fhael1s.bmp~      ~portraits/geosors.bmp~
+
+BEGIN @29 /*fHaEl2 (White robed half-elf/elf) - By Amaurea*/   //20
+SUBCOMPONENT @51  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13 /*Female Humanoid Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/humanoid/fhael2m.bmp~      ~override/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fhael2m.bmp~      ~portraits/geosorl.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fhael2s.bmp~      ~override/geosors.bmp~
+COPY    ~druidsor/portraits/female/humanoid/fhael2s.bmp~      ~portraits/geosors.bmp~
+
+
+////////////////////////////Bear Form
+
+BEGIN @99 /*oBear1 (Dark Brown looking over shoulder) - By Amaurea*/  //21
+SUBCOMPONENT @42 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Bear form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/obear1m.bmp~      ~override/bearm.bmp~
+COPY    ~druidsor/portraits/animals/obear1s.bmp~      ~override/bears.bmp~
+
+BEGIN @70 /*oBear2 (Lighter Brown with partially open smiling mouth) - By Amaurea*/  //22
+SUBCOMPONENT @42  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Bear form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/obear2m.bmp~      ~override/bearm.bmp~
+COPY    ~druidsor/portraits/animals/obear2s.bmp~      ~override/bears.bmp~
+
+BEGIN @71 /*oBear3 (Serious looking bear) - By Amaurea*/         //23
+SUBCOMPONENT @42  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Bear form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/obear3m.bmp~      ~override/bearm.bmp~
+COPY    ~druidsor/portraits/animals/obear3s.bmp~      ~override/bears.bmp~
+
+
+//////////////////////////// Cat Form Portraits
+BEGIN @72 /*oCat1 (Yellow and orange mottled with white bib) - By Amaurea*/   //24
+SUBCOMPONENT @43  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Cat Form Portrait*/  // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/ocat1m.bmp~      ~override/catm.bmp~
+COPY    ~druidsor/portraits/animals/ocat1s.bmp~      ~override/cats.bmp~
+
+BEGIN @73 /*oCat2 (Grey with black bands around neck) - By Amaurea*/      //25
+SUBCOMPONENT @43  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Cat Form Portrait*/  // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/ocat2m.bmp~      ~override/catm.bmp~
+COPY    ~druidsor/portraits/animals/ocat2s.bmp~      ~override/cats.bmp~
+
+BEGIN @74 /*oCat3 (Grey) - By Amaurea*/           //26
+SUBCOMPONENT @43  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Cat Form Portrait*/  // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/ocat3m.bmp~      ~override/catm.bmp~
+COPY    ~druidsor/portraits/animals/ocat3s.bmp~      ~override/cats.bmp~
+
+
+//////////////////////////// Dog Form Portraits
+
+
+BEGIN @75 /*oDog1 (Grey Hound) - By Amaurea*/       //27
+SUBCOMPONENT @44  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Dog Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/odog1m.bmp~      ~override/dogm.bmp~
+COPY    ~druidsor/portraits/animals/odog1s.bmp~      ~override/dogs.bmp~
+
+BEGIN @76 /*oDog2 (Beige shaggy haired dog) - By Amaurea*/  //28
+SUBCOMPONENT @44  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Dog Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/odog2m.bmp~      ~override/dogm.bmp~
+COPY    ~druidsor/portraits/animals/odog2s.bmp~      ~override/dogs.bmp~
+
+BEGIN @77 /*oDog3 (Border Collie) - By Amaurea, picture of Skye by Caedwyr*/   //29
+SUBCOMPONENT @44  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Dog Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/odog3m.bmp~      ~override/dogm.bmp~
+COPY    ~druidsor/portraits/animals/odog3s.bmp~      ~override/dogs.bmp~
+
+
+////////////////////////////Leopard Form Portraits
+
+
+BEGIN @78 /*oLeop1 (Leopard) - By Amaurea*/       //30
+SUBCOMPONENT @45  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Leopard Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/oleop1m.bmp~      ~override/leopardm.bmp~
+COPY    ~druidsor/portraits/animals/oleop1s.bmp~      ~override/leopards.bmp~
+
+BEGIN @79 /*oLeop2 (Leopard with snow) - By Amaurea*/       //31
+SUBCOMPONENT @45  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Leopard Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/oleop2m.bmp~      ~override/leopardm.bmp~
+COPY    ~druidsor/portraits/animals/oleop2s.bmp~      ~override/leopards.bmp~
+
+BEGIN @80 /*oLeop3 (Leopard with tongue) - By Amaurea*/  //32
+SUBCOMPONENT @45  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Leopard Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/oleop3m.bmp~      ~override/leopardm.bmp~
+COPY    ~druidsor/portraits/animals/oleop3s.bmp~      ~override/leopards.bmp~
+
+
+////////////////////////////  Moose Form Portraits - Male
+
+BEGIN @81 /*omMoo1 (Moose with head down) - By Amaurea*/     //33
+SUBCOMPONENT @46 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11  /*Male Moose Form Portrait*/  // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/moose/ommoo1m.bmp~      ~override/moosem.bmp~
+COPY    ~druidsor/portraits/male/moose/ommoo1s.bmp~      ~override/mooses.bmp~
+
+BEGIN @82 /*omMoo2 (Moose with head in profile) - By Amaurea*/  //34
+SUBCOMPONENT @46 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11 /*Male Moose Form Portrait*/  // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/moose/ommoo2m.bmp~      ~override/moosem.bmp~
+COPY    ~druidsor/portraits/male/moose/ommoo2s.bmp~      ~override/mooses.bmp~
+
+BEGIN @83 /*omMoo3 (Chestnut coloured moose) - By Amaurea*/   //35
+SUBCOMPONENT @46 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~) @11  /*Male Moose Form Portrait*/  // need male PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/male/moose/ommoo3m.bmp~      ~override/moosem.bmp~
+COPY    ~druidsor/portraits/male/moose/ommoo3s.bmp~      ~override/mooses.bmp~
+
+
+//////////// Moose Form Portraits - Female
+
+
+BEGIN @84 /*ofMoo1 (Semi-profile perspective) - By Amaurea*/    //36
+SUBCOMPONENT @52 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13  /*Female Moose Form Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/moose/ofmoo1m.bmp~      ~override/moosem.bmp~
+COPY    ~druidsor/portraits/female/moose/ofmoo1s.bmp~      ~override/mooses.bmp~
+
+BEGIN @85 /*ofMoo2 (Chestnut coloured moose with head down) - By Amaurea*/    //37
+SUBCOMPONENT @52
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13  /*Female Moose Form Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/moose/ofmoo2m.bmp~      ~override/moosem.bmp~
+COPY    ~druidsor/portraits/female/moose/ofmoo2s.bmp~      ~override/mooses.bmp~
+
+BEGIN @86 /*ofMoo3 (Chestnut coloured moose with head up) - By Amaurea*/    //38
+SUBCOMPONENT @52 
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @13  /*Female Moose Form Portrait*/ // need female PC choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/female/moose/ofmoo3m.bmp~      ~override/moosem.bmp~
+COPY    ~druidsor/portraits/female/moose/ofmoo3s.bmp~      ~override/mooses.bmp~
+
+
+//////////////////////////// Panther Form Portraits
+
+
+BEGIN @87 /*oPan1 (Shiny black panther) - By Amaurea*/  //37
+SUBCOMPONENT @47  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Panther Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/opan1m.bmp~      ~override/pantherm.bmp~
+COPY    ~druidsor/portraits/animals/opan1s.bmp~      ~override/panthers.bmp~
+
+BEGIN @88 /*oPan2 (Panther with head cocked to one side) - By Amaurea*/  //38
+SUBCOMPONENT @47  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Panther Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/opan2m.bmp~      ~override/pantherm.bmp~
+COPY    ~druidsor/portraits/animals/opan2s.bmp~      ~override/panthers.bmp~
+
+BEGIN @89 /*oPan3 (Panther with mouth partially open) - By Amaurea*/   //39
+SUBCOMPONENT @47  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Panther Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/opan3m.bmp~      ~override/pantherm.bmp~
+COPY    ~druidsor/portraits/animals/opan3s.bmp~      ~override/panthers.bmp~
+
+
+//////////////////////////// Rat Form Portraits
+
+
+BEGIN @90 /*oRat1 (Beige Rat) - By Amaurea*/              //40
+SUBCOMPONENT @48  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Rat Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/orat1m.bmp~      ~override/ratm.bmp~
+COPY    ~druidsor/portraits/animals/orat1s.bmp~      ~override/rats.bmp~
+
+BEGIN @91 /*oRat2 (Rat sticking head out of hole) - By Amaurea*/  //41
+SUBCOMPONENT @48  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Rat Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/orat2m.bmp~      ~override/ratm.bmp~
+COPY    ~druidsor/portraits/animals/orat2s.bmp~      ~override/rats.bmp~
+
+BEGIN @92 /*oRat3 (Light rat with food) - By Amaurea*/            //42
+SUBCOMPONENT @48  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Rat Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/orat3m.bmp~      ~override/ratm.bmp~
+COPY    ~druidsor/portraits/animals/orat3s.bmp~      ~override/rats.bmp~
+
+
+//////////////////////////// Snake Form Portraits
+
+
+BEGIN @93 /*oSnak1 (Snake raising head off grass) - By Amaurea*/      //43
+SUBCOMPONENT @49  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Snake Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/osnak1m.bmp~      ~override/snakem.bmp~
+COPY    ~druidsor/portraits/animals/osnak1s.bmp~      ~override/snakes.bmp~
+
+BEGIN @94 /*oSnak2 (Cobra smelling its surroundings) - By Amaurea*/    //44
+SUBCOMPONENT @49  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Snake Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/osnak2m.bmp~      ~override/snakem.bmp~
+COPY    ~druidsor/portraits/animals/osnak2s.bmp~      ~override/snakes.bmp~
+
+BEGIN @95 /*oSnak3 (Cobra with hood partially extended) - By Amaurea*/   //45
+SUBCOMPONENT @49  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Snake Form Portrait*/ // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/osnak3m.bmp~      ~override/snakem.bmp~
+COPY    ~druidsor/portraits/animals/osnak3s.bmp~      ~override/snakes.bmp~
+
+
+////////////////////////////Wolf Form Portraits
+
+
+BEGIN @96 /*oWolf1 (White wolf) - By Amaurea*/          //46
+SUBCOMPONENT @50  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Wolf Form Portrait*/  // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/owolf1m.bmp~      ~override/wolfm.bmp~
+COPY    ~druidsor/portraits/animals/owolf1s.bmp~      ~override/wolfs.bmp~
+
+BEGIN @97 /*oWolf2 (Grey and white wolf) - By Amaurea*/   //47
+SUBCOMPONENT @50  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Wolf Form Portrait*/  // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/owolf2m.bmp~      ~override/wolfm.bmp~
+COPY    ~druidsor/portraits/animals/owolf2s.bmp~      ~override/wolfs.bmp~
+
+BEGIN @98 /*oWolf3 (Black Wolf) - By Amaurea*/           //48
+SUBCOMPONENT @50  
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~2~ OR MOD_IS_INSTALLED ~setup-druidsor.tp2~ ~3~) @14 /*Wolf Form Portrait*/  // need male PC or female choice in earlier install order
+REQUIRE_PREDICATE GAME_IS ~tob bgt~ @4 /* portraits too small for EE */
+
+COPY    ~druidsor/portraits/animals/owolf3m.bmp~      ~override/wolfm.bmp~
+COPY    ~druidsor/portraits/animals/owolf3s.bmp~      ~override/wolfs.bmp~

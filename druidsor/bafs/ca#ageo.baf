@@ -1,0 +1,23 @@
+//Apply geomancer kit and penalties
+IF
+ Class(Player1,19)
+ CheckStatGT(Player1,12,WIS)
+ CheckStatGT(Player1,8,CHR)
+ !Alignment(Player1,LAWFUL_GOOD)
+ !Alignment(Player1,LAWFUL_EVIL)
+ !Alignment(Player1,CHAOTIC_GOOD)
+ !Alignment(Player1,CHAOTIC_EVIL)
+THEN
+RESPONSE #100
+  ActionOverride(Player1,AddKit(CA#DSORC))
+  ApplySpellRES("CA#STLOS",Player1)
+  DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    DisplayStringHead(Player1,@10)
+    DestroySelf()
+END

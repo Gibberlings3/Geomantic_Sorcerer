@@ -1,0 +1,840 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style type="text/css">
+/*<![CDATA[*/
+    <!-- 
+      body {
+        margin: 0;
+        padding: 0;
+        cursor: default;
+        text-align: center;
+        color: #000;
+        background: #e3e3db url('images/shsbkgd.jpg');
+      }
+      #wrap {
+        text-align: left;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 88%;
+        font-family: Verdana, Tahoma, Arial, sans-serif;
+        font-size: 12px;
+        color: #333;
+      }
+      #header {
+        text-align: center;
+        background: #e5e5e5;
+        border: 1px solid #781808;
+        border-top: 5px solid #781808;
+        border-bottom: 5px solid #781808;
+        padding: 5px 0 13px 0;
+      }
+      #header .about {
+        margin: 7px 0 0 0;
+        padding: 0;
+        font-style: italic;
+        color: #555;
+      }
+      #header .menu {
+        font-weight: bold;
+        margin: 0;
+        color: #999;
+      }
+      #header .menu a:link,
+      #header .menu a:visited {
+        color: #333;
+      }
+      #footer {
+        text-align: center;
+        background: #e5e5e5;
+        border: 1px solid #781808;
+        border-top: 5px solid #781808;
+        border-bottom: 5px solid #781808;
+        font-size: 75%;
+        padding: 5px 0 13px 0;
+      }
+      #maindiv {
+        margin: 0 auto;
+        margin-top: -20px;
+        width: 80%;
+      }
+      #maindiv .content {
+        counter-increment: kman;
+        counter-reset: h2;
+        background-color: #e8e8e6;
+        padding: 0 0 25px 0;
+        margin: 50px auto;
+        border-width: 1px 1px 4px 10px;
+        border-style: solid;
+        border-color: #781808;
+        position: relative;
+        display: block;
+      }
+      #maindiv .content::before {
+        content: counter(kman, lower-roman);
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+        color: #eee;
+        background-color: #781808;
+        width: 35px;
+        top: 0px;
+        left: 0px;
+        display: block;
+      }
+      #maindiv .important {
+        font-size: 95%;
+        font-family: Verdana;
+        text-align: left;
+        background-color: #F1F1F1;
+        border-top: solid 1px #aaa;
+        border-bottom: solid 1px #aaa;
+        border-left: solid 6px #aaa;
+        border-right: solid 6px #aaa;
+        padding: 10px;
+        margin: 20px auto;
+        width: 80%;
+        line-height: 160%;
+      }
+      #maindiv .important::before {
+        display: none;
+      }
+      #maindiv .important p {
+        font-size: 100%;
+        text-indent: 0px;
+        margin: 5px 0 10px 0;
+      }
+      #maindiv .important ol {
+        margin: -10px 0 0 20px;
+      }
+      #maindiv .important ul {
+        margin: -10px 0 0 15px;
+      }
+      #maindiv p {
+        font-size: 100%;
+        font-style: normal;
+        line-height: 150%;
+        padding: 0px;
+        margin: 10px auto;
+        width: 90%;
+        display: block;
+      }
+      #maindiv address {
+        font-size: 95%;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        color: #BBB;
+        background-color: #781808;
+        padding: 3px 0px 0px;
+        margin: 0px;
+        width: 100%;
+        position: absolute;
+        bottom: -1px;
+        left: 0px;
+        display: block;
+        text-align: right;
+      }
+      #maindiv address a:active {
+        color: #fff;
+        text-decoration: line-through;
+        border: none;
+      }
+      #maindiv address a:focus,
+      #maindiv address a:hover {
+        text-decoration: none;
+        color: #F1F1F1;
+        border: 0;
+      }
+      #maindiv address a:link,
+      #maindiv address a:visited {
+        font-weight: bold;
+        text-decoration: underline;
+        background-color: transparent;
+        color: #eaeaea !important;
+        padding-right: 5px;
+        padding-left: 6px;
+      }
+      #maindiv ol {
+        margin: -10px 0 0 35px;
+        *margin-left: 70px;
+      }
+      #maindiv ol li {
+        line-height: 150%;
+      }
+      #maindiv ul {
+        margin: -10px 0 0 30px;
+        *margin-left: 65px;
+      }
+      #maindiv ul li {
+        list-style-type: square;
+        line-height: 150%;
+      }
+      .t1 {
+        font-weight: bold;
+        width: 26%;
+        text-align: right;
+        clear: right;
+        float: left;
+        *float: none;
+        *margin-left: 65px;
+        line-height: 22px;
+      }
+      .t2 {
+        text-align: left;
+        width: 73%;
+        float: right;
+        *float: none;
+        line-height: 22px;
+      }
+      a:hover,
+      a:active {
+        color: #222;
+        border-bottom: 1px solid black;
+      }
+      a:link,
+      a:visited {
+        color: #781808;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      h1 {
+        font-size: 225%;
+        color: #444;
+        padding: 5px 0 5px 0;
+        margin: 0;
+        width: 100%;
+      }
+      h2 {
+        display: block;
+        font-family: Verdana, Trebuchet MS, Arial, serif;
+        text-align: left;
+        text-indent: 30px;
+        padding: 0px;
+        margin: 20px 0 0 0;
+        border-bottom: dotted 2px #d0d0d0;
+        border-top: dotted 2px #d0d0d0;
+        background: #deded9;
+        font-size: 160%;
+      }
+      h2::first-letter {
+        color: #781808;
+        background-color: transparent;
+      }
+      h3,
+      h4,
+      h5 {
+        margin: 10px 40px 10px 40px;
+        padding: 0;
+      }
+      h3 {
+        font-size: 125%;
+        font-style: italic;
+      }
+      h4 {
+        font-size: 125%;
+      }
+      h5 {
+        font-size: 100%;
+      }
+      h6 {
+        width: 100%;
+        margin: 10px 0 15px 0;
+        background-color: #ECECEC;
+        text-align: left;
+        text-indent: 30px;
+        font-size: 100%;
+        font-style: italic;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        border-bottom: solid 1px #bbb;
+        border-top: solid 1px #bbb;
+      }
+      hr {
+        margin: 10px 0 10px 0;
+        padding: 0;
+        height: 1px;
+        border: 0;
+        color: #aaa;
+        background-color: #aaa;
+      }
+      hr.floatfix {
+        clear: both;
+        color: #e8e8e6;
+        background-color: #e8e8e6;
+        *margin: 0;
+        *padding: 0;
+      }
+      ul.c1 {margin-left: 32px;}
+    -->
+    /*]]>*/
+    </style>
+    <title>
+      Spellhold Studios - Unique Containers
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="images/shsweb.ico" rel="icon" type="image/bmp" />
+    <style type="text/css">
+/*<![CDATA[*/
+    p.c1 {text-align: center}
+    /*]]>*/
+    </style>
+    <style type="text/css">
+/*<![CDATA[*/
+    li.c1 {list-style: none}
+    /*]]>*/
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <a name="top" id="top"></a>
+      <div id="header">
+        <h1>
+          Unique Containers
+        </h1><strong>A Spellhold Studios mod for Baldur's Gate II, Baldur's Gate
+        Trilogy and <acronym title="Baldur's Gate 'To Two'">Tutu</acronym></strong>
+        <hr />
+        <p class="about">
+          Author: Miloch
+        </p>
+        <p class="about">
+          <a href="http://www.shsforums.net/index.php?showtopic=40775">Mod
+          Forum</a>  &#8226; <a href=
+          "http://www.shsforums.net/index.php?autocom=downloads&showfile=789">Download</a>
+           &#8226; Version 3
+        </p>
+        <hr />
+        <p class="menu">
+          <a href="#intro">Introduction</a> &middot; <a href=
+          "#compat">Compatibility</a> &middot; <a href="#install">Installation</a>
+          &middot; <a href="#fixes">Specific Fixes</a> &middot; <a href=
+          "#credits">Credits</a> &middot; <a href="#version">Version History</a>
+        </p>
+      </div>
+      <div id="maindiv">
+        <!-- ============== I n t r o d u c t i o n ============= -->
+        <a name="intro" id="intro"></a>
+        <div class="content">
+          <h2>
+            Introduction
+          </h2>
+          <p>
+            This mini-mod assigns unique icons to all containers in the game.
+            Containers include standard and mod-added bags of holding, gem bags,
+            scroll cases, potion cases and ammo belts. The tweak allows you to
+            identify containers at a glance by color and use them for a
+            particular type of storage. Or it just makes your character's
+            accessories color-coordinated :P. Optionally, you can assign unique
+            names (based on the colour) to the containers to differentiate them
+            further.
+          </p>
+          <p>
+            The mod will also fix various issues with stores and containers in
+            both the unmodded (and Fixpacked) games, as well as with mods. Some
+            of those mods include <acronym title="Big Picture"><a href=
+            "http://www.spellholdstudios.net/ie/bp">BP</a></acronym>,
+            <acronym title="Check the Bodies"><a href=
+            "http://www.spellholdstudios.net/ie/ctb">CtB</a></acronym>,
+            <acronym title="Never-Ending Journey Second Edition"><a href=
+            "http://vlad.blackwyrmlair.net/nejmain.html">NEJ2</a></acronym>,
+            <acronym title="Region of Terror"><a href=
+            "http://www.spellholdstudios.net/ie/rot">RoT</a></acronym>,
+            <acronym title="Shadows Over Soubar"><a href=
+            "http://www.spellholdstudios.net/ie/sos">SOS</a></acronym> and
+            <acronym title="Unfinished Business"><a href=
+            "http://www.pocketplane.net/ub">UB</a></acronym>. Most
+            significantly, it fixes some issues with <a href=
+            "http://www.shsforums.net/index.php?showtopic=16160">Lost Items
+            v2</a>, including containers with duplicate stores attached and
+            other mod usability issues pointed out by Bursk and SixOfSpades.
+            You don't need to have any of these mods installed to use the main
+            feature though.
+          </p>
+          <p>
+            These are just some of the containers you may come across after
+            installing this mod, depending on which other mods you have
+            installed.
+          </p>
+          <p class="c1">
+            <img border="0" src="images/contain.jpg" width="336" height="338" alt=
+            "Unique Containers" />
+          </p>
+          <p>
+            Ultimately, this mod will be included in a larger tweak mod but is
+            released as a patch or mini-mod in the interim. 
+          </p>
+          <address>
+            <span class="footer">Unique Containers &gt; Introduction</span>
+            &#8226;<a href="#top">Back to top</a>
+          </address>
+        </div>
+        <!-- ============= C o m p a t i b i l i t y ============ -->
+        <a name="compat" id="compat"></a>
+        <div class="content">
+          <h2>
+            Compatibility
+          </h2>
+          <p>
+            This mod works with <acronym title=
+            "Baldur's Gate II">BG2</acronym>: Shadows of Amn, with or without
+            the expansion pack Throne of Bhaal. Make sure your game has the
+            latest patch. Check the ReadMe files related to your patch in your
+            game folder and the <a href=
+            "http://www.bioware.com/support/games/">BioWare</a> website if
+            necessary.
+          </p>
+          <p>
+            This mod will also work with all mods, including <a href=
+            "http://www.pocketplane.net/tutu/">Baldur's Gate Tutu</a> (and
+            EasyTutu), <a href=
+            "http://www.shsforums.net/index.php?showforum=261">Baldur's Gate
+            Trilogy</a>, the <a href=
+            "http://www.kerzenburg.baldurs-gate.eu/showthread.php?t=34931">BiG
+            World Project</a> and the total conversion <a href=
+            "http://ca.spellholdstudios.net">Classic Adventures</a>.
+          </p>
+          <p>
+            You should install this after any mods that add containers,
+            including <a href="http://www.gibberlings3.net/bg2tweaks/">
+            <acronym title="Baldur's Gate II">BG2</acronym> Tweaks</a> and
+            <a href="http://www.shsforums.net/index.php?showtopic=42695">
+            <acronym title="Baldur's Gate Trilogy">BGT</acronym> Tweaks</a>.
+          </p>
+          <address>
+            <span class="footer">Unique Containers &gt; Compatibility</span>
+            &#8226;<a href="#top">Back to top</a>
+          </address>
+        </div>
+        <!-- ============= I n s t a l l a t i o n ============== -->
+        <a name="install" id="install"></a>
+        <div class="content">
+          <h2>
+            Installation
+          </h2>
+          <p>
+            <em><strong>Note:</strong> If you've previously installed the mod,
+            remove it before extracting the new version. To do this, run
+            <strong>setup-contain.exe</strong> (or .command), uninstall all
+            previously installed components and delete the <strong>contain</strong>
+            folder. When installing or uninstalling, do not close the <acronym title=
+            "Disk Operating System">DOS</acronym> window by clicking on the
+            <strong>X</strong> button! Instead, press the <strong>Enter</strong>
+            key when instructed to do so.</em>
+          </p>
+          <p>
+            You can extract files from the archive using <a href=
+            "http://www.rarlab.com/download.htm">WinRAR</a>, <a href=
+            "http://www.zipgenius.it/ita/?page_id=12">ZipGenius</a> or another
+            file compression utility that handles .rar files.
+          </p>
+          <p>
+            You have three choices when installing this mod. Option 1 gives you
+            unique names and icons for containers, option 2 gives new icons only
+            and option 3 just fixes container and store bugs in the vanilla game
+            and with mods.
+          </p>
+          <p>
+            <strong>Windows</strong><br />
+            Extract the contents of the mod to the folder of the game you wish
+            to modify (<acronym title="Baldur's Gate II">BG2</acronym>,
+            <acronym title="Baldur's Gate Trilogy">BGT</acronym> or EasyTutu).
+            On successful extraction, there should be a "contain" subfolder
+            and a setup-contain.exe file in your game folder. To install, simply
+            double-click <strong>setup-contain.exe</strong> and follow the
+            instructions on screen.
+          </p>
+          <p>
+            Run <strong>setup-contain.exe</strong> in your game folder to
+            reinstall, uninstall or otherwise change components.
+          </p>
+          <p>
+            <strong>Mac OS X</strong><br />
+            Extract the contents of the mod to the folder of the game you wish
+            to modify. On successful extraction, there should be an "contain"
+            subfolder in your game folder. Download the OS X version of <a href=
+            "http://weidu.org/~thebigg/"><acronym title=
+            "Weimer Dialogue Utility">WeiDU</acronym></a> (or copy another mod's
+            launcher) and rename it <strong>setup-contain</strong>. Put this and
+            the <strong>setup-contain.command</strong> file within the "contain"
+            subfolder in your main game folder. To install, double-click on
+            <strong>setup-contain.command</strong> and follow the instructions
+            on screen.
+          </p>
+          <p>
+            <strong>Linux</strong><br />
+            Extract the contents of the mod to the folder of the game you wish
+            to modify. Download the latest Linux version of <a href=
+            "http://weidu.org/~thebigg/"><acronym title=
+            "Weimer Dialogue Utility">WeiDU</acronym></a> and copy WeiDU and
+            WeInstall to /usr/bin. Then open a terminal and cd to your game
+            installation directory.
+          </p>
+          <p>
+            <em>Optional: run 'tolower' and answer 'Y' to both queries. You can
+            avoid running the second option (linux.ini) if you've already ran
+            it once in the same directory. To save time, the archive is already
+            tolowered, so there's no need to run the first option (lowercasing
+            file names) either, if you've extracted only this mod since the
+            last time you lowercased file names. If unsure, running tolower and
+            choosing both options is the safe bet.</em>
+          </p>
+          <p>
+            Run <strong>WeInstall setup-contain</strong> in your game folder
+            to install the mod. Then run <strong>wine BGMain.exe</strong> and
+            start playing.
+          </p>
+          <address>
+            <span class="footer">Unique Containers &gt; Installation</span>
+            &#8226;<a href="#top">Back to top</a>
+          </address>
+        </div>
+        <!-- ============ S p e c i f i c   F i x e s ============= -->
+        <a name="fixes" id="fixes"></a>
+        <div class="content">
+          <h2>
+            Specific Fixes
+          </h2>
+          <h3>
+            Buggy "bottomless" containers
+          </h3>
+          <p>
+            If you've installed <a href="http://www.gibberlings3.net/bg2tweaks/">
+            <acronym title="Baldur's Gate II">BG2</acronym> Tweaks</a> or a
+            similar component that makes your bags supposedly "bottomless,"
+            there is a <a href=
+            "http://www.shsforums.neet/index.php?showtopic=34939">bug</a> where
+            items may disappear sometimes. This attempts to fix that by setting
+            the container capacity to 65535 (the maximum value for that field)
+            if it finds any that are set to zero.
+          </p>
+          <h3>
+            Unavailable containers
+          </h3>
+          <p>
+            If you install Unique Containers after <a href=
+            "http://sol.usc.edu/~bbellina/downloads/">Brendan Bellina's mods</a>,
+            it will patch those containers into stores. (Otherwise, they are only
+            available via <a href="http://iesdp.gibberlings3.net/clua/bg2">CLUA
+            Console</a>; therefore, do <strong>not</strong> use the console to
+            create these or any other containers, as that will lead to buggy
+            duplication of bag stores and inventories.) In <acronym title=
+            "Baldur's Gate 'To Two'">Tutu</acronym>, these stores are the ranged
+            weapons shop (for quivers and ammunition belts) and the magic items
+            shop (for other containers) at the Nashkel Carnival. In <acronym title=
+            "Baldur's Gate II">BG2</acronym>, the respective containers will be
+            at Perter's and Mira's shops in Waukeen's Promenade. Unique
+            Containers will also patch Bellina's scimitar (if you've installed
+            it) into a shop later in the game. In addition, it will balance the
+            weapon to fit in better to whichever game you've installed it on.
+            If you don't want this "balancing" (and prefer a potentially
+            imbalanced item), install it after Unique Containers (though you
+            will need to use the console to obtain it in this case).
+          </p>
+          <h3>
+            Unnamed shops
+          </h3>
+          <p>
+            Some container-selling shops have very generic names like "Shop" or
+            "Merchant" or have no valid names at all. This mod gives those shops
+            valid names based on the merchant's name ("Ikert's Wares" for
+            example).
+          </p>
+          <h3>
+            Duplicate bag bugs
+          </h3>
+          <p>
+            One of the most annoying bugs in the game (both modded and unmodded)
+            relates to the fact that the same container occasionally is available
+            in more than one place. This leads to duplicate access and perhaps
+            even destruction of items placed in those containers. This mod fixes
+            that by cloning the buggy containers and replacing the duplicate
+            references so that every container should be truly "unique." The
+            specific containers fixed include:
+          </p>
+          <ul>
+            <li>Throne of Bhaal: duplicate gem bags at Amkethran Smugglers
+            </li>
+            <li>Big Picture: duplicate bags at Joluv's Wares
+            </li>
+            <li>Check the Bodies: duplicate Campsite Equipment on Paddy
+            Stoutfellow and Sylvanus Moondrop (also bags fixed so they work as
+            "inns" as apparently intended); duplicate bags at Temple
+            </li>
+            <li>Chosen of Mystra Encounters: duplicate bags at Adventurer's Mart
+            and Pen and Parchment
+            </li>
+            <li>Lost Items: duplicate bags and many other issues fixed (see
+            <a href="http://forums.pocketplane.net/index.php/topic,23654.html">this
+            thread</a> for some issues)
+            </li>
+            <li>Mersetek: duplicate gem bag given unique reference
+            </li>
+            <li>Munchmod: duplicate ammo belt at Arkivisti's Cart
+            </li>
+            <li>Region of Terror: duplicate bag of holding at Deli's Supplies
+            </li>
+            <li>Shadows Over Soubar: fixed potential duplication of Foot Locker
+            via pickpocketing; also item now looks more like the trunk it should
+            be, and is described as such (rather than a "bag")
+            </li>
+            <li>Unfinished Business: duplicate gem bag given by Eleanya
+            </li>
+          </ul>
+          <p>
+            Other bags are not cloned, but are dropped from the mod store that
+            duplicates them. This is due to the fact they (and many other bags)
+            are available elsewhere. There are only so many unique colors in the
+            spectrum.
+          </p>
+          <ul>
+            <li>Bone Hill: duplicate bags at Perk's Store and Ye Magic Shoppe
+            </li>
+            <li>Check the Bodies: duplicate bags at Temple
+            </li>
+            <li>Chosen of Mystra Encounters: duplicate bags at Scrolls R Us
+            </li>
+            <li>Dark Horizons: duplicate bags at Godfrey's Goods (single bags
+            retained)
+            </li>
+            <li>Dark Ritual: duplicate bag at Magically Enhanced Scrolls
+            </li>
+            <li>Dark Side of the Sword Coast: duplicate bag at Trungle's Supplies
+            </li>
+            <li>Forgotten Wars Item Pack: duplicate bags at Forgotten Wars Emporium
+            </li>
+            <li>Mod for the Orderly: duplicate keyrings at Mira's Merchandise,
+            Trademeet Peddler and Karthis al-Hezzar (single keyring retained)
+            </li>
+            <li>Munchmod: duplicate potion case at Arkivisti's Cart
+            </li>
+            <li>Never-Ending Journey: duplicate bags at Merchant League
+            </li>
+            <li>Region of Terror: duplicate bags at Merchant Arlax
+            </li>
+            <li>Ribald's Genie: duplicate scroll case at duplicate Copper Coronet
+            </li>
+            <li>The Darkest Day: duplicate bags at Magic Shop, Merchant, Store
+            </li>
+            <li>The Undying: duplicate bags at Dwarven Hammer, Mystra's Magical
+            Merchant, The Goods, Fine Magical Goods
+            </li>
+          </ul>
+          <h3>
+            Invalid store items
+          </h3>
+          <p>
+            Several stores reference items that don't exist, which can lead to
+            issues. This fixes the problems by replacing invalid references with
+            valid ones if possible, or deleting them if not. The mod also fixes
+            items with zero inventory for sale and similar issues.
+          </p>
+          <ul>
+            <li>Baldur's Gate II: invalid scrl7a at Adventurer's Mart removed
+            </li>
+            <li>Alex Macintosh: zero stock items set to 1 (halfeet and healharp)
+            </li>
+            <li>Bone Hill: invalid scrolls at X Scrolls removed
+            </li>
+            <li>iiItemMod: extra random loot from Selence's Knapsack removed
+            </li>
+            <li>Mortis Mini-Mod: invalid scrolls at Mortis' Spells of Terror removed
+            </li>
+            <li>MTS Crappack: invalid null items at Selence's Goods removed
+            </li>
+            <li>Never-Ending Journey: invalid bag01nej at Conlan's Smithy removed
+            </li>
+            <li>The Undying: invalid items removed from Dark Maiden's Wares;
+            item typo fixed in Merchant's Market
+            </li>
+          </ul>
+          <h3>
+            Other issues
+          </h3>
+          <p>
+            Please report any issues or problems with this mod at the
+            <a href=
+            "http://www.shsforums.net/index.php?showtopic=40775">forum</a>.
+            Suggestions, feedback and constructive criticism are welcome.
+          </p>
+          <address>
+            <span class="footer">Unique Containers &gt; Specific Fixes</span>
+            &#8226;<a href="#top">Back to top</a>
+          </address>
+        </div>
+        <!-- ======================= C r e d i t s ====================== -->
+        <a name="credits" id="credits"></a>
+        <div class="content">
+          <h2>
+            Credits
+          </h2>
+          <span class="t1"><a href=
+          "http://forums.gibberlings3.net/index.php?showtopic=14571">Initial
+          idea</a> and testing:</span> <span class="t2">DavidNowlin</span><br />
+          <span class="t1">Troubleshooting:</span>
+          <span class="t2">Bursk, pro5 and SixOfSpades</span><br />
+          <span class="t1">Lost Items mod:</span> <span class="t2">Aramis
+          and Vedran</span><br />
+          <span class="t1">French translation:</span> <span class="t2">Graoumf</span><br />
+          <span class="t1">German translation:</span> <span class="t2">Leomar</span><br />
+          <span class="t1">Italian translation:</span> <span class="t2">Stoneangel
+          and Andrea/ilot</span><br />
+          <span class="t1">Russian translation:</span> <span class="t2">prowler
+          and aerie.ru</span><br />
+          <span class="t1">Spanish translation:</span> <span class="t2">Ancalagon
+          el Negro and Immortality</span><br />
+          <hr class="floatfix" />
+          <h5>
+            Programs/tools used in creation:
+          </h5><br />
+          <ul class="version-list c1">
+            <li>
+              <a href="http://www.shsforums.net/index.php?showtopic=42359">BAM
+              Batcher</a> by Miloch
+            </li>
+            <li>
+              <a href="http://www.teambg.eu/?page=tools&amp;cat=32">BAM
+              Workshop</a> by Glenn Flansburg
+            </li>
+            <li>
+              <a href=
+              "http://www.gibberlings3.net/tools/dltcep.php"><acronym title=
+              "Dragonlance Total Conversion Editor Pro">DLTCEP</acronym></a> by
+              Avenger
+            </li>
+            <li>
+              <a href="http://www.editpadpro.com/editpadclassic.html">EditPad
+              Classic</a> by Jan Goyvaerts
+            </li>
+            <li>
+              <a href="http://iesdp.gibberlings3.net/"><acronym title=
+              "Infinity Engine Structures Description Project">IESDP</acronym></a>
+              maintained by igi
+            </li>
+            <li>
+              <a href="http://www.cict.co.uk/software/dev/mrep.htm">Multi-Replace</a>
+              by Martin Holmes
+            </li>
+            <li>
+              <a href=
+              "http://forums.pocketplane.net/index.php/topic,25153.msg314249.html#msg314249">
+              Near Infinity</a> by Jon Olav Hauglid and others
+            </li>
+            <li>
+              <a href="http://www.pspad.com/en/">PSPad</a> by Jan Fiala
+            </li>
+            <li>
+              <a href="http://weidu.org/main.html#weidu"><acronym title=
+              "Weimer Dialogue Utility">WeiDU</acronym></a> by Wes Weimer and
+              the bigg
+            </li>
+          </ul>
+          <p>
+            Unique Containers is copyright &copy; 2009 by Miloch.
+            This work (including all code and documentation) is licensed under
+            a <a href="http://creativecommons.org/licenses/by-nc/3.0/">Creative
+            Commons Attribution-Noncommercial 3.0 Unported License</a>. You are
+            free to share (copy, distribute and transmit) and to remix (adapt)
+            this work, except for commercial purposes. See the <a href=
+            "http://creativecommons.org/licenses/by-nc/3.0/legalcode">Creative
+            Commons Public License</a> for more details. All other copyrights
+            and trademarks are the property of their respective owners.
+          </p>
+          <address>
+            <span class="footer">Unique Containers &gt; Credits</span> &#8226;
+            <a href="#top">Back to top</a>
+          </address>
+        </div>
+        <!-- ========== V e r s i o n   H i s t o r y ========= -->
+        <a name="version" id="version"></a>
+        <div class="content">
+          <h2>
+            Version History
+          </h2>
+          <h6>
+            Version 3: 2 Dec 2009
+          </h6>
+          <ul>
+            <li>Added a bevy of fixes for mod store bugs (<acronym title=
+            "Baldur's Gate II: Shadows of Amn">BG2-SoA</acronym>, Alex Macintosh,
+            Bone Hill, <acronym title="Chosen of Mystra">CoM</acronym> Encounters,
+            <acronym title="Check the Bodies">CtB</acronym>, Dark Horizons, Dark
+            Ritual, <acronym title="Dark Side of the Sword Coast">DSotSC</acronym>,
+            Forgotten Wars Item Pack, Mod for the Orderly, Mortis Mini-Mod,
+            <acronym title="MajorTomSawyer">MTS</acronym> Crappack, Munchmod,
+            <acronym title="Never-Ending Journey">NEJ</acronym>, Ribald's Genie,
+            <acronym title="Region of Terror">RoT</acronym>, <acronym title=
+            "Shadows Over Soubar">SOS</acronym>, <acronym title=
+            "The Darkest Day">TDD</acronym>, The Undying)
+            </li>
+            <li>Updated "bottomless" bag fix to avoid using time-consuming
+            <acronym title="regular expressions">regexp</acronym>
+            </li>
+            <li>Fixed minor compatibility issue with <acronym title=
+            "Sorcerer's Place Item Pack">SPItems</acronym> and <acronym title=
+            "Region of Terror">RoT</acronym>
+            </li>
+            <li>Added French and Russian translations; updated other translations
+            </li>
+          </ul>
+          <h6>
+            Version 2: 25 Oct 2009
+          </h6>
+          <ul>
+            <li>Fixed and enhanced the Shadows Over Soubar patch
+            </li>
+            <li>Fixed bag/store bug on Paddy Stoutfellow in Check the Bodies
+            </li>
+            <li>Reversed Spellhold Gauntlet bag fix as it is now included in
+            that mod
+            </li>
+            <li>Enhanced compatibility with Classic Adventures
+            </li>
+            <li>Added compatibility for more mods (Bellina's Bags, Bolsa, Charli,
+            Mersetek and Mystigan)
+            </li>
+            <li>Added Spanish translation; updated other translations
+            </li>
+            <li>Added fix for buggy "bottomless" bags
+            </li>
+          </ul>
+          <h6>
+            Version 1: 23 May 2009
+          </h6>
+          <ul>
+            <li>Fixed minor inconsistency in Lost Items patch
+            </li>
+            <li>Fixed typo in "Bag of Holing" :P
+            </li>
+            <li>Added <a href="http://forums.gibberlings3.net/index.php?showtopic=16380">dupe-baggery
+            fixes</a> for Unfinished Business and Spellhold Gauntlet
+            </li>
+            <li>Added German and Italian translations
+            </li>
+          </ul>
+          <h6>
+            Beta Version 2: 19 Aug 2008
+          </h6>
+          <ul>
+            <li>Enhanced Lost Items usability patch
+            </li>
+            <li>Added Bearwere's Candlekeep Bags (from <a href=
+            "http://bearwere.axspace.com/">Tweaks and Tricks</a>) to container patch
+            </li>
+          </ul>
+          <h6>
+            Beta Version 1: 6 Jul 2008
+          </h6>
+          <ul>
+            <li>Initial release
+            </li>
+          </ul>
+          <address>
+            <span class="footer">Unique Containers &gt; Version History</span>
+            &#8226;<a href="#top">Back to top</a>
+          </address>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
