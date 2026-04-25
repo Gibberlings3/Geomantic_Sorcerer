@@ -273,7 +273,7 @@ Casting Time: 6
 Area of Effect: 5-foot-radius sphere 
 Saving Throw: None 
 
-This spell is a more powerful version of Glove of Invulnerability, creating an immobile, faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, 3rd- 4th- and 5th-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the globe of invulnerability). This includes innate abilities and effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the globe. Sixth and higher level spells are not affected by the globe. The globe can be brought down by a successful dispel magic spell, as well as other forms of magical attack such as Spellstrike and Pierce Magic.~
+This spell is a more powerful version of Globe of Invulnerability, creating an immobile, faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, 3rd- 4th- and 5th-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the globe of invulnerability). This includes innate abilities and effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the globe. Sixth and higher level spells are not affected by the globe. The globe can be brought down by a successful dispel magic spell, as well as other forms of magical attack such as Spellstrike and Pierce Magic.~
 @275=~Delayed Blast Explosion~
 @276=~Delayed Blast Explosion (Invocation/Evocation) 
 Level: 7
@@ -342,7 +342,7 @@ Requires: Druidic Immunities.~
 @298=~Earthly Planeswalking~
 @299=~(TIER 3 ABILITY)
 Earthly Planeswalking:
-Having mastered the elements, it is now possible for the geomantic sorcerer to meld into any terrestrial environment, moving through the ground or air at will, reapprearing anywhere onscreen in humanoid form.
+Having mastered the elements, it is now possible for the geomantic sorcerer to meld into any terrestrial environment, moving through the ground or air at will, reappearing anywhere onscreen in humanoid form.
 
 
 Requires: Elemental Transformation.~
@@ -494,7 +494,10 @@ At the end of the sixth round, a final column of flame will engulf the caster on
 Requires: Earthly Planeswalking.~
 
 @333=~Earthly Planeswalking:
-Having mastered the elements, it is now possible for the druid to meld into any terrestrial environment, moving through the ground or air at will, reapprearing anywhere onscreen in human form.~
+Having mastered the elements, it is now possible for the geomantic sorcerer to meld into any terrestrial environment, moving through the ground or air at will, reappearing anywhere onscreen in human form.
+
+
+Requires: Elemental Transformation.~
 
 @334 = ~\bpriest\b~
 @335 = ~\bPriest\b~ 
